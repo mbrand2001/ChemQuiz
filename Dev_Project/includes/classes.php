@@ -1,5 +1,5 @@
 <?php 
-include("../includes/db_connect.php");
+include("db_connect.php");
  
 class User{ 
     public $user_id;
@@ -92,13 +92,13 @@ class Student extends User{
     public function getAssignmentsDue(){ 
         global $conn;
         
-        $stmt = $conn->prepare("Select Assignment_name,Due_date,Is_active from Assignments where Class_id = (select Class_1 from Users where User_ID=?) OR Class_id = (select Class_2 from Users where User_ID=?) OR Class_id = (select Class_3 from Users where User_ID=?) OR Class_id = (select Class_4 from Users where User_ID=?) OR Class_id = (select Class_5 from Users where User_ID=?)");
+        $stmt = $conn->prepare("Select Assignment_id,Assignment_name,Due_date,Is_active from Assignments where Class_id = (select Class_1 from Users where User_ID=?) OR Class_id = (select Class_2 from Users where User_ID=?) OR Class_id = (select Class_3 from Users where User_ID=?) OR Class_id = (select Class_4 from Users where User_ID=?) OR Class_id = (select Class_5 from Users where User_ID=?)");
         $stmt->bind_param("iiiii",$this->user_id,$this->user_id,$this->user_id,$this->user_id,$this->user_id); 
         $stmt->execute();
-        $stmt->bind_result($name,$due_date,$is_active); 
+        $stmt->bind_result($id,$name,$due_date,$is_active); 
         $array = array();
         while($stmt->fetch()){
-            array_push($array, array($name,$due_date,$is_active));
+            array_push($array, array($id,$name,$due_date,$is_active));
         }
 
 
@@ -428,7 +428,7 @@ class Assignment{
 }
 
 
-class Calendar_Entry{ 
+class Calender_Entry{ 
     public $Entry_id;
     public $Class_id; 
     public $Date; 
@@ -462,7 +462,7 @@ class Annoucement_Entry{
 
 
 
-class Calendar{ 
+class Calender{ 
     public $Entry_array;
     function getEntries($class_id){ 
         global $conn;
@@ -472,7 +472,7 @@ class Calendar{
         $stmt->bind_result($eid,$cid,$cdate,$text); 
         $this->Entry_array = array();
         while($stmt->fetch()){
-            array_push($this->Entry_array, new Calendar_Entry($eid,$cid,$cdate,$text));
+            array_push($this->Entry_array, new Calender_Entry($eid,$cid,$cdate,$text));
             
         }
         

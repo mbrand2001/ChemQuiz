@@ -1,5 +1,16 @@
 <?php
 include("../includes/db_connect.php");
+session_start();
+if($_SESSION['role'] != 'admin'){ 
+    header('Location: ../index.php');
+    exit();
+}
+
+
+
+
+
+
 
 //Create User
 if( isset($_POST['click'])){

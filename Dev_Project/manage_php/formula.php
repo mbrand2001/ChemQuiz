@@ -1,6 +1,5 @@
 <?php
-include("db_connect.php");
-include("classes.php");
+
 
 function calculateMolarMass($formula) {
    
@@ -110,9 +109,6 @@ function calculateMolarMass($formula) {
         'Fr' => 223.0,
         'Ra' => 226.03,
         'Ac' => 227.03,
-        'Th' => 232.04,
-        'Pa' => 231.04,
-        'U' => 238.03,
         'Np' => 237.05,
         'Pu' => 244.06,
         'Am' => 243.06,
@@ -276,15 +272,15 @@ function calculateMolarMass($formula) {
     
   }
   // Add the last element
-      echo $currentElement;
-      echo $currentCount."<br>";
+      
   $molarMass += (float)$elements[$currentElement] * (int)$currentCount;
 
   return $molarMass;
 }
 
 
-$formula = "C21H23NO5";
+$formula = $_POST['formula'];
+
 $molarMass = calculateMolarMass($formula);
 
 echo "The molar mass of $formula is $molarMass g/mol.";

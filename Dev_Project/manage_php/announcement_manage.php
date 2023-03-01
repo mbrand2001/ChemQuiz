@@ -1,5 +1,10 @@
 <?php
 include("../includes/db_connect.php");
+session_start();
+if($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor'){ 
+  header('Location: ../index.php');
+  exit();
+}
 if( isset($_POST['click'])){
 if(isset($_POST['class_id']) && isset($_POST['text_entry'])){ 
   if( !empty($_POST['class_id']) && !empty($_POST['text_entry']) ){

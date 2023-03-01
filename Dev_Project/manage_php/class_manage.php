@@ -1,6 +1,16 @@
 <?php
 include("../includes/db_connect.php");
+session_start();
+if($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor'){ 
+  header('Location: ../index.php');
+  exit();
+}
+
+
+
 //Create Class
+
+
 if( isset($_POST['click'])){
 if(isset($_POST['c_name']) && isset($_POST['p_id'])){ 
   if(!empty($_POST['c_name']) && !empty($_POST['p_id'] && !empty($_POST['click']))){

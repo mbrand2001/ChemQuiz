@@ -1,5 +1,12 @@
 <?php
 include("../includes/db_connect.php");
+session_start();
+if($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor'){ 
+  header('Location: ../index.php');
+  exit();
+}
+
+
 
 //Create Question
 if( isset($_POST['click'])){
@@ -266,8 +273,10 @@ exit();
   <textarea id="step_4" name="step_4" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_4_a">Step 4 Answers:</label><br>
   <textarea id="step_4_a" name="step_4_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
-  <label for="formula">Formula:</label><br>
-  <textarea id="formula" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
+  <label for="formula">Formula (NOTE: Please check the formula you input. This is so you can base the multiple correct answers off the result and to double check that the application interpreted the forumla correctly!):</label><br>
+  <textarea id="formula1" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
+  <p id="response1"></p><br>
+  <button type="button" onclick="checkFormula(1);"> Check Formula</button>
   <input type="hidden" value="1" name="click"/>
 </br>
   <button type="button" onclick="createQuestion();">Submit</button>
@@ -327,8 +336,10 @@ exit();
   <textarea id="step_4" name="step_4" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_4_a">Step 4 Answers:</label><br>
   <textarea id="step_4_a" name="step_4_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
-  <label for="formula">Formula:</label><br>
-  <textarea id="formula" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
+  <label for="formula">Formula (NOTE: Please check the formula you input. This is so you can base the multiple correct answers off the result and to double check that the application interpreted the forumla correctly!):</label><br>
+  <textarea  id="formula2" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
+  <p id="response2"></p><br>
+  <button type="button" onclick="checkFormula(2);"> Check Formula</button>
   <input type="hidden" value="1" name="edit"/>
 </br>
   <button type="button" onclick="editQuestion();">Submit</button>

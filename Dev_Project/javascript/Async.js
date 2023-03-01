@@ -17,6 +17,15 @@ function Login(){
         }
         if(req.responseText == 1){ 
             document.getElementById('warning').innerText="logged in"
+            window.location.replace("admin_dash.php");
+        }
+        if(req.responseText == 2){ 
+            document.getElementById('warning').innerText="logged in"
+            window.location.replace("student_dash.php");
+        }
+        if(req.responseText == 3){ 
+            document.getElementById('warning').innerText="logged in"
+            window.location.replace("professor_dash.php");
         }
         else{ 
             document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
@@ -685,4 +694,25 @@ function uploadFile(){
     }
 }
 req.send(formData)
+}
+
+
+function checkFormula(num){ 
+    req = new XMLHttpRequest(); 
+    script = "formula.php"; 
+    req.open('POST', script,true);
+  
+    formula = document.getElementById("formula" + num).value;
+    console.log(formula);
+    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    req.onreadystatechange=function(){
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('response' + num).innerText=this.responseText;
+            
+        }
+    }
+    formula="formula="+formula;
+    req.send(formula)
+    
+
 }
