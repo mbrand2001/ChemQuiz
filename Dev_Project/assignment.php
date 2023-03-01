@@ -3,6 +3,16 @@
 <script src="/javascript/Nav.js"></script>
 </head>
 <?php
+function str_contains($haystack,$needle){ 
+    if (strpos($haystack, $needle) !== false) {
+        return true;
+      }
+    return false;
+}
+
+
+
+
 include("includes/classes.php");
 session_start();
 
@@ -43,21 +53,28 @@ foreach($questions as $question){
     echo "Question id : $question[0] <br>";
     echo "Question Text : $question[3] <br>";
     echo "Question Answers $question[4] <br>";
-    echo "Question diagram: $question[6] <br>";
+    //echo "Question diagram: $question[6] <br>";
+    if((str_contains($question[6],'.png') || str_contains($question[6],'.jpg')|| str_contains($question[6],'.jpeg')||str_contains($question[6],'.gif')) && !str_contains($question[6],'none')){
+        echo "<img src='manage_php/diagrams/$question[6]' style='width:200px;height:150px;'/><br>";
+    }
+    
     echo "Question formula: $question[15] <br>";
     echo "<br>";
     echo "<form id='question_form$index>";
     echo "<label for='answer'>Answer:</label>";
     echo "<input type='text' id='answer' name='answer'>";
-    echo "<button type='button' onclick='answerQuestion();'>Submit</button>";
+    echo "<input type='hidden' name='qid' value=$question[0]>";
+    echo "<button type='button' onclick='answerQuestion($index);'>Submit</button>";
     echo "</form>";
     echo "<br>";
     $index++;
 }
-
-
-
+$_SESSION['questions'] = $questions;
+$_SESSION['assignment'] = $assignment;
 ?>
+
+
+
 
 </html>        
 
