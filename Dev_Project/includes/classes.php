@@ -328,8 +328,11 @@ class Assignment{
         
         
         $stmt = $conn->prepare("Select * from Questions where Question_id in (Select Question_id From Assignment_Question_List where Assignment_id =?)");
-            $stmt->bind_param("i",$this->assignment_id); 
-            $stmt->execute();
+        if($stmt == false){ 
+            var_dump($conn->error_list);
+        }
+        $stmt->bind_param("i",$this->assignment_id); 
+        $stmt->execute();
         $stmt->bind_result($qid,$cid,$qty,$qte,$qa,$qta,$qdu,$s1,$s2,$s3,$s4,$s1a,$s2a,$s3a,$s4a,$formula); 
         $array = array();
         while($stmt->fetch()){

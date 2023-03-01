@@ -3,13 +3,13 @@
 <script src="/javascript/Nav.js"></script>
 </head>
 <?php 
-session_start();
 include("includes/classes.php");
+session_start();
 
 
 // use sessions to init student class! 
 $test_user = new Student(1,"test","test","email","student","1","2","3","4","5");
-$_SESSION["id"] = $test_user->user_id;
+$_SESSION["student"] = $test_user;
 
 $assignments_due = $test_user->getAssignmentsDue(); 
 
