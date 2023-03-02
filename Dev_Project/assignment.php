@@ -1,6 +1,6 @@
 <html>
 <head>
-<script src="/javascript/Nav.js"></script>
+<script src="/javascript/Assignment.js"></script>
 </head>
 <?php
 function str_contains($haystack,$needle){ 
@@ -60,7 +60,7 @@ foreach($questions as $question){
     
     echo "Question formula: $question[15] <br>";
     echo "<br>";
-    echo "<form id='question_form$index>";
+    echo "<form id='question_form$index'>";
     echo "<label for='answer'>Answer:</label>";
     echo "<input type='text' id='answer' name='answer'>";
     echo "<input type='hidden' name='qid' value=$question[0]>";

@@ -377,15 +377,19 @@ class Assignment{
                 $ans_arr = preg_split("/\,/",$question[4]);
                 foreach($ans_arr as $ans){ 
                     if($ans === $answer){
+                    //echo "blah1";
                     $t = 1;
                     $stmt->bind_param("iisi",$question_id,$this->attempt_id,$answer,$t); 
                     $stmt->execute();
+                    $stmt->close();
                     return true;
                     }
                 }
+                   // echo "blah2";
                     $t = 0;
                     $stmt->bind_param("iisi",$question_id,$this->attempt_id,$answer,$t); 
                     $stmt->execute();
+                    $stmt->close();
                     return false;
             }
         }
