@@ -1,6 +1,9 @@
 <html>
 <head>
 <script src="/javascript/Assignment.js"></script>
+<script type="text/javascript">
+window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
+</script>
 </head>
 <?php
 function str_contains($haystack,$needle){ 
@@ -60,11 +63,14 @@ foreach($questions as $question){
     
     echo "Question formula: $question[15] <br>";
     echo "<br>";
+    echo "<b id='response$index'></b><br>";
+    echo "<button id='hintbutton$index' type='button' onclick='showHint($index,$question[0]);' style='visibility: hidden;'>Get Hint</button>";
+    echo "<div id='hintdiv$index'></div>";
     echo "<form id='question_form$index'>";
     echo "<label for='answer'>Answer:</label>";
     echo "<input type='text' id='answer' name='answer'>";
     echo "<input type='hidden' name='qid' value=$question[0]>";
-    echo "<button type='button' onclick='answerQuestion($index);'>Submit</button>";
+    echo "<button id='submit$index' type='button' onclick='answerQuestion($index);'>Submit</button>";
     echo "</form>";
     echo "<br>";
     $index++;

@@ -9,6 +9,11 @@ $qid=$_POST['qid'];
 
 
 $correct=$assignment->answerQuestion($questions,$qid,$answer);
-var_dump($correct);
+if($correct===true){ 
+    echo "correct";
+}
+if($correct===false){ 
+    echo "incorrect";
+}
 
 ?>
