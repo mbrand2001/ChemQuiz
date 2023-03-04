@@ -49,7 +49,10 @@ function answerHint(index,qid,num){
     formData.append('qid',qid);
     req.onreadystatechange=function(){ 
         if (this.readyState == 4 && this.status == 200) {
-            console.log(req.responseText)
+            document.getElementById('step'+num+'_response_'+index).innerHTML = req.responseText +"<br>"
+            if(req.responseText=='correct'){ 
+                document.getElementById('step'+num+"_submit_"+index).style.visibility='hidden'
+            }
         }
     }
 
