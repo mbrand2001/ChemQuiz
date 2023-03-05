@@ -77,6 +77,15 @@ foreach($questions as $question){
 }
 $_SESSION['questions'] = $questions;
 $_SESSION['assignment'] = $assignment;
+
+
+echo "<br>";
+echo "<button id='submit_assignment'  type='button' onclick='submitAssignment();'>Finish Assignment</button>";
+echo "<b id='grade'></b>";
+echo "<br>"; 
+echo "<br>";
+echo "<br>";
+echo "<a href='assignments.php'><input type='button' value='Back to assignments'/></a>";
 ?>
 
 

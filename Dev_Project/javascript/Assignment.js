@@ -59,3 +59,17 @@ function answerHint(index,qid,num){
     req.send(formData);
 
 }
+
+
+function submitAssignment(){ 
+    req = new XMLHttpRequest();
+    req.open('POST','submit_assignment.php',true)
+
+    req.onreadystatechange=function(){ 
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('grade').innerText=req.responseText;
+        }
+
+    }
+    req.send();
+}

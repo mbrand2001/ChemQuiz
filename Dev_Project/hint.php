@@ -8,8 +8,7 @@ $qid=$_POST['qid'];
 $index=$_POST['index'];
 $question = $questions[$qid];
 
-//something is going wrong with the indexing I think I need to look more into this later?
-//var_dump($questions);
+
 if(empty($question[7])){
     $question[7] = "n/a";
 }
