@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include("includes/db_connect.php");
 if( isset($_POST['click'])){
@@ -68,22 +69,96 @@ else{
   ?>
 
 
-<html> 
+<!DOCTYPE html>
+<html lang="en">
 <head> 
-<title>Login</title>
-<h1 id=warning></h1>
-<script src="javascript/Async.js"></script>
-</head> 
-<body> 
-<h1> Welcome! Please Login</h1>
-<form id=login>
-  <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email"><br>
-  <label for="password">Password:</label><br>
-  <input type="text" id="password" name="password"><br>
-  <input type="hidden" value="1" name="click"/>
-  <button type="button" onclick="Login();">Submit</button>
-  
+  <title>Login</title> 
+  <h1 id=warning></h1>
+  <script src="javascript/Async.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <title>Log-in Page</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+
+            <form class="form-signin" id="login">
+              <div class="form-label-group">
+                <input
+                  type="email"
+                  id="email"
+                  for="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Email address"
+                  required
+                  autofocus
+                />
+                <label for="email">Email address</label>
+              </div>
+
+              <div class="form-label-group">
+                <input
+                  type="password"
+                  id="password"
+                  for="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
+                <label for="password">Password</label>
+              </div>
+              <input type="hidden" value="1" name="click"/>
+              <button
+                class="btn btn-lg btn-primary btn-block text-uppercase"
+                type="submit"
+                onclick="Login();"
+              >
+                Log In
+              </button>
+              <hr class="my-4" />
+              <button
+                class="btn btn-lg btn-secondary btn-block text-uppercase"
+                type="submit"
+              >
+                Register
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+<!--
+<form id=loggin>
+<label for="email">Email:</label><br>
+<input type="text" id="eemail" name="email"><br>
+<label for="password">Password:</label><br>
+<input type="text" id="ppassword" name="password"><br>
+<input type="hidden" value="1" name="click"/>
+<button type="button" onclick="Login();">Submit</button>
+
 </form>
 <br>
+-->
 </body>

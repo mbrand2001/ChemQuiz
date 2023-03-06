@@ -30,7 +30,7 @@ CREATE TABLE `Announcement_Entry` (
   PRIMARY KEY (`Entry_id`),
   KEY `Class_id` (`Class_id`),
   CONSTRAINT `Announcement_Entry_ibfk_1` FOREIGN KEY (`Class_id`) REFERENCES `Class` (`Class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `Assignment_Question_List` (
   KEY `Question_id` (`Question_id`),
   CONSTRAINT `Assignment_Question_List_ibfk_1` FOREIGN KEY (`Assignment_id`) REFERENCES `Assignments` (`Assignment_id`),
   CONSTRAINT `Assignment_Question_List_ibfk_2` FOREIGN KEY (`Question_id`) REFERENCES `Questions` (`Question_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +90,7 @@ CREATE TABLE `Assignments` (
   PRIMARY KEY (`Assignment_id`),
   KEY `Class_id` (`Class_id`),
   CONSTRAINT `Assignments_ibfk_1` FOREIGN KEY (`Class_id`) REFERENCES `Class` (`Class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `Attempts` (
   KEY `Assignment_id` (`Assignment_id`),
   CONSTRAINT `Attempts_ibfk_1` FOREIGN KEY (`User_id`) REFERENCES `Users` (`User_ID`),
   CONSTRAINT `Attempts_ibfk_2` FOREIGN KEY (`Assignment_id`) REFERENCES `Assignments` (`Assignment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,7 +150,7 @@ CREATE TABLE `Calender_Entry` (
   PRIMARY KEY (`Entry_id`),
   KEY `Class_id` (`Class_id`),
   CONSTRAINT `Calender_Entry_ibfk_1` FOREIGN KEY (`Class_id`) REFERENCES `Class` (`Class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE `Class` (
   PRIMARY KEY (`Class_id`),
   KEY `Professor_id` (`Professor_id`),
   CONSTRAINT `Class_ibfk_1` FOREIGN KEY (`Professor_id`) REFERENCES `Users` (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,7 +246,7 @@ CREATE TABLE `Questions` (
   PRIMARY KEY (`Question_id`),
   KEY `Class_id` (`Class_id`),
   CONSTRAINT `Questions_ibfk_1` FOREIGN KEY (`Class_id`) REFERENCES `Class` (`Class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,7 +276,7 @@ CREATE TABLE `Responses` (
   KEY `Question_list_id` (`Question_list_id`),
   KEY `Attempt_id` (`Attempt_id`),
   CONSTRAINT `Responses_ibfk_2` FOREIGN KEY (`Attempt_id`) REFERENCES `Attempts` (`Attempt_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,7 +309,7 @@ CREATE TABLE `Users` (
   `Class_4` varchar(100) DEFAULT NULL,
   `Class_5` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
