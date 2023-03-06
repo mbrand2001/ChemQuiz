@@ -29,7 +29,7 @@ foreach($assignments_due as $assignment){
 }
 
 
-
+echo "<a href='student_dash.php'><input type='button' value='Back to dashboard'/></a>";
 
 
 

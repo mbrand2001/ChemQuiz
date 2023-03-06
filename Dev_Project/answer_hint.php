@@ -9,7 +9,8 @@ $question = $questions[$qid];
 $hid = $_POST['hid'];
 $answer = $_POST['answer'];
 
-if($hid === 1){
+if($hid == 1){
+    
     $ans_arr = preg_split("/\,/",$question[11]);
     foreach($ans_arr as $ans){ 
     if($answer===$ans){
@@ -21,7 +22,8 @@ if($hid === 1){
     echo "incorrect";
     exit();
 }
-if($hid === 2){
+if($hid == 2){
+    
     $ans_arr = preg_split("/\,/",$question[12]);
     foreach($ans_arr as $ans){ 
     if($answer===$ans){
@@ -35,7 +37,8 @@ if($hid === 2){
     
 }   
 
-if($hid === 3){
+if($hid == 3){
+    
     $ans_arr = preg_split("/\,/",$question[13]);
     foreach($ans_arr as $ans){ 
     if($answer===$ans){
@@ -48,7 +51,8 @@ if($hid === 3){
     exit();
     
 }
-if($hid === 4){
+if($hid == 4){
+    
     $ans_arr = preg_split("/\,/",$question[14]);
     foreach($ans_arr as $ans){ 
     if($answer===$ans){
@@ -61,5 +65,6 @@ if($hid === 4){
     exit();
     
 }
+
 
 ?>
