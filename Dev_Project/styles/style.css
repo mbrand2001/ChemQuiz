@@ -2,7 +2,6 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-
 .link-nav a {
   cursor: pointer;
 }
@@ -164,4 +163,32 @@ nav {
 .right-align {
   float: right;
   align-self: right;
+}
+
+.container-rounded {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-view {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-submit {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.question {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.card {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }

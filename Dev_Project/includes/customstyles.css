@@ -1,0 +1,15 @@
+/* Custom styles */
+.container-rounded {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.btn-view {
+    background-color: #007bff;
+    color: #fff;
+}
+.btn-submit {
+    background-color: #28a745;
+    color: #fff;
+}

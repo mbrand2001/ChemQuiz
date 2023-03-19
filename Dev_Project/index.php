@@ -124,7 +124,7 @@ else{
               <input type="hidden" value="1" name="click"/>
               <button
                 class="btn btn-lg btn-primary btn-block text-uppercase"
-                type="submit"
+                type="button"
                 onclick="Login();"
               >
                 Log In
