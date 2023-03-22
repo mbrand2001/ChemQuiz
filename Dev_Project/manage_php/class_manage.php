@@ -1,11 +1,11 @@
 <?php
 include("../includes/db_connect.php");
+include("../includes/classes.php");
 session_start();
-if($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor'){ 
+if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor'){ 
   header('Location: ../index.php');
   exit();
 }
-
 
 
 //Create Class

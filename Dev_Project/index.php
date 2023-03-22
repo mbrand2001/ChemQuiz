@@ -2,6 +2,7 @@
 
 session_start();
 include("includes/db_connect.php");
+include("includes/classes.php");
 if( isset($_POST['click'])){
 if(isset($_POST["email"]) && isset($_POST["password"])){ 
   if(!empty($_POST['email']) && !empty($_POST['password'])){
@@ -14,27 +15,35 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
            
             if($_POST['email'] == $row['Email']){ 
                 if(password_verify($_POST['password'],$row['Password'])){
-                    $_SESSION['id']   = $row["User_ID"];
-                    $_SESSION['role'] =  $row['Role'];
-                    $_SESSION['fname'] = $row['First_Name']; 
-                    $_SESSION['lname'] = $row['Last_Name'];
-                    $_SESSION['email'] = $row['Email'];
-                    $_SESSION['class_1'] = $row['Class_1'];
-                    $_SESSION['class_2'] = $row['Class_2'];
-                    $_SESSION['class_3'] = $row['Class_3'];
-                    $_SESSION['class_4'] = $row['Class_4'];
-                    $_SESSION['class_5'] = $row['Class_5'];
+                    $id   = $row["User_ID"];
+                    $role =  $row['Role'];
+                    $fname = $row['First_Name']; 
+                    $lname = $row['Last_Name'];
+                    $email = $row['Email'];
+                    $c1 = $row['Class_1'];
+                    $c2 = $row['Class_2'];
+                    $c3 = $row['Class_3'];
+                    $c4 = $row['Class_4'];
+                    $c5 = $row['Class_5'];
                     
-                    if($_SESSION['role'] === 'admin'){
+                    
+
+                    if($role === 'admin'){
+                      $admin = new Admin($id,$fname,$lname,$email,$role,$c1,$c2,$c3,$c4,$c5);
+                      $_SESSION["user"] = $admin;
                       echo "1";
                       exit();
 
                     }
-                    if($_SESSION['role'] === 'student'){ 
+                    if($role === 'student'){ 
+                    $student = new Student($id,$fname,$lname,$email,$role,$c1,$c2,$c3,$c4,$c5);
+                    $_SESSION["user"] = $student;
                       echo "2";
                       exit();
                     }
-                    if($_SESSION['role'] === 'professor'){ 
+                    if($role === 'professor'){ 
+                    $professor = new Professor($id,$fname,$lname,$email,$role,$c1,$c2,$c3,$c4,$c5);
+                    $_SESSION["user"] = $professor;
                       echo "3";
                       exit();
                     }

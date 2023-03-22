@@ -1,5 +1,6 @@
 <?php
 include("../includes/db_connect.php");
+include("../includes/classes.php");
 session_start();
 if($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor'){ 
   header('Location: ../index.php');

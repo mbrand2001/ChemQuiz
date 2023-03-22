@@ -1,14 +1,16 @@
+
 <?php
+include("includes/classes.php");
 session_start();
-if($_SESSION['role'] != 'student'){ 
+$user = $_SESSION["user"];
+
+if($_SESSION['user']->role != 'student'){ 
     header('Location: index.php');
     exit();
 }
 
 
-?>
-<?php
-include("includes/classes.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -73,15 +75,14 @@ include("includes/classes.php");
         </thead>
         <tbody>
         <?php 
-        // use sessions to init student class! 
-        $test_user = new Student(1,"test","test","email","student","1","2","3","4","5");
-        $_SESSION["student"] = $test_user;
-        $assignments_due = $test_user->getAssignmentsDue(); 
-
-        session_start();
-
-            
-            
+       
+        
+        /*
+        $_SESSION["user"] = new Student(1,'a','a','a','a',1,2,3,4,5);
+        $user = $_SESSION["user"];
+        */
+        $assignments_due = $user->getAssignmentsDue(); 
+        
 
             foreach($assignments_due as $assignment){ 
                 echo " <tr>";
