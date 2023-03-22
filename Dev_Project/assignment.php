@@ -74,7 +74,7 @@
         <div id="left-side">
         <div id="logo-div">
             <a>
-            <img src="./imgs/logo.png" style="max-width:40px" />
+            <img src="./imgs/logo.png" style="height:40px; width:40px" />
             </a>
             </div>
             </div>
@@ -89,14 +89,12 @@
     echo  "<div class='row'>";
         foreach($questions as $question){ 
             echo "
-                <div class='card' style='padding-left: 0px !important; padding-right: 0px !important;'>
+                <div class='card' style='padding-left: 0px !important; padding-right: 0px !important; margin-bottom:2em;'>
                 <h5 class='card-header'>Question #$questionnumber</h5>
                 <div class='card-body'>
                 <h5 class='card-title'>$question[3]</h5>
-                <p class='card-text'>With supporting text below as a natural lead-in to additional content.</p>
-                <a href='#' class='btn btn-primary'>Go somewhere</a>
-                </div>
-                </div>
+                
+                
                 ";
             echo "<div class='question'>";
             // echo "<p><strong>Question id:</strong> $question[0]</p>";
@@ -119,7 +117,7 @@
             echo "<button class='btn btn-primary' id='submit$index' type='button' onclick='answerQuestion($index);'>Submit</button>";
             echo "</form>";
             echo "</div>";
-            echo "<br class='mb-4'>";
+            echo "<br class='mb-4'></div></div>";
             $index++;
             $questionnumber++;
         }
@@ -127,8 +125,10 @@
         <div class="col-12 text-center">
         <button class="btn btn-primary" id="submit_assignment" type="button" onclick="submitAssignment();">Finish Assignment</button>
         <b id="grade"></b>
-        <br><br><br>
-        <a href="assignments.php"><button class="btn btn-secondary">Back to assignments</button></a>
+        <br><br>
+        <a href='student_dash.php'><input class='btn btn-primary gray' type='button' value='Back to dashboard'/></a>
+        <br>
+        <br>
         </div>
     </div>
     </div>

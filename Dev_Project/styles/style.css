@@ -22,6 +22,7 @@
 body {
   margin:0;
   background-color: rgb(34 51 167 / 11%);
+  border:0px solid black !important;
 }
 
 nav {
@@ -165,6 +166,12 @@ nav {
   align-self: right;
 }
 
+.container-fluid {
+  padding: 2.5em;
+}
+
+
+
 .container-rounded {
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -191,4 +198,80 @@ nav {
 .card {
   padding-left: 0px !important;
   padding-right: 0px !important;
+}
+
+* /* For all elements, take into account any borders and padding when sizing */
+{
+    box-sizing: border-box;
+}
+
+body
+{
+	border:  2px solid black;
+	height: 600px;
+}
+
+.titleRegion 
+{
+    background-color: red;
+    padding: 10px;
+	text-align: center;
+    color: white;
+}
+
+.column
+{
+    float: left; /* Let the content of a column float to the left of previous item (i.e. column) */
+    padding: 10px;
+}
+
+.info 
+{	
+    width: 80%; /* The info display section takes 80% of browser window width */
+}
+
+.menu 
+{
+    width: 20%; /* The menu buttons section takes 20% of browser window width */
+}
+
+
+.menu ul 
+{
+    list-style-type: none;	/* do not add any dots, dashes, etc. before list items */
+    margin: 2px;
+    padding: 2px;
+}
+
+.menu li 
+{
+	background-color: red;
+    color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    padding: 10px;
+}
+
+.menu li:hover 
+{
+    background-color: #B9292C;
+}
+
+#item0, #item1, #item2, #item3
+{
+	display: none;	/* hide all info items initially */
+	/*border: 3px solid black;*/
+}
+
+img
+{
+	height: 240px;
+	width: 320px;
+}
+
+.clearfix::after 	/* Make sure the image fits with the rest of the content within the info div */
+{
+    display: table;
+    clear: both;
+    content: "";
 }
