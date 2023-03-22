@@ -438,12 +438,14 @@ class Assignment{
 class Calender_Entry{ 
     public $Entry_id;
     public $Class_id; 
+    public $Class_Name;
     public $Date; 
     public $Text;
 
-   function __construct($Entry_id, $Class_id, $Date, $Text){ 
+   function __construct($Entry_id, $Class_id, $Class_Name ,$Date, $Text){ 
     $this->Entry_id = $Entry_id;
     $this->Class_id = $Class_id;
+    $this->Class_Name = $Class_Name;
     $this->Date   = $Date;
     $this->Text = $Text;
 
@@ -475,13 +477,13 @@ class Calender{
     public $Entry_array;
     function getEntries($class_id){ 
         global $conn;
-        $stmt = $conn->prepare("Select Entry_id, Class_id, Calender_Date,Text_Entry from Calender_Entry where Class_id=?");
+        $stmt = $conn->prepare("Select Entry_id, Calender_Entry.Class_id,  Class_Name, Calender_Date,Text_Entry from Calender_Entry inner join Class on Calender_Entry.Class_id = Class.Class_id where Calender_Entry.Class_id=?");
         $stmt->bind_param("i",$class_id); 
         $stmt->execute();
-        $stmt->bind_result($eid,$cid,$cdate,$text); 
+        $stmt->bind_result($eid,$cid,$Class_Name,$cdate,$text); 
         $this->Entry_array = array();
         while($stmt->fetch()){
-            array_push($this->Entry_array, new Calender_Entry($eid,$cid,$cdate,$text));
+            array_push($this->Entry_array, new Calender_Entry($eid,$cid,$Class_Name,$cdate,$text));
             
         }
         
