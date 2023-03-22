@@ -113,6 +113,7 @@ include("includes/classes.php");
                               $array = $Announcement_Class->getEntries(1); 
                               // var_dump($array);
                             echo "<h5 class='card-title'>".$array[0]->Class_id."</h5>";
+                            echo "<h5 class='card-title'>".$array[0]->Class_Name."</h5>";
                             echo "<p class='card-text'>".$array[0]->Text."</p>";
                             echo "<p class='card-text'><small class='text-muted'>".$array[0]->Date."</small></p>";
                         ?>
