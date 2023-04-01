@@ -103,7 +103,7 @@ else{
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
 
-            <form class="form-signin" id="login">
+            <form onkeydown="return event.key != 'Enter';" class="form-signin" id="login">
               <div class="form-label-group">
                 <input
                   type="email"

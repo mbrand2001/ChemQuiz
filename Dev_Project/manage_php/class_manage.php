@@ -16,9 +16,14 @@ if(isset($_POST['c_name']) && isset($_POST['p_id'])){
   if(!empty($_POST['c_name']) && !empty($_POST['p_id'] && !empty($_POST['click']))){
     $c_name=$_POST['c_name'];
     $p_id=$_POST['p_id'];
-    
-    $stmt = $conn->prepare("INSERT INTO Class(Class_name,Professor_id) VALUES (?,?)"); 
-    $stmt->bind_param("ss",$c_name,$p_id); 
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $code = '';
+    for ($i = 0; $i < 10; $i++) {
+      $code .= $characters[rand(0, strlen($characters) - 1)];
+    }
+
+    $stmt = $conn->prepare("INSERT INTO Class(Class_name,Professor_id,Code) VALUES (?,?,?)"); 
+    $stmt->bind_param("sss",$c_name,$p_id,$code); 
     if(!$stmt->execute()) echo $stmt->error;
     echo"1";
     exit();
@@ -122,6 +127,7 @@ if($result->num_rows > 0){
     echo"<td>Class Id</td>";
     echo"<td>Class Name</td>";
     echo"<td>Professor Id</td>"; 
+    echo"<td>Code</td>"; 
     echo"</tr>";
     echo"</th>";
   while($row = $result->fetch_assoc()){ 
@@ -130,6 +136,7 @@ if($result->num_rows > 0){
     echo"<td>".$row['Class_id']."</td>";
     echo"<td>".$row['Class_name']."</td>";
     echo"<td>".$row['Professor_id']."</td>";
+    echo"<td>".$row['Code']."</td>";
     echo"</tr>";
     
     
