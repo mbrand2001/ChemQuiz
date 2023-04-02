@@ -138,14 +138,19 @@ else{
               >
                 Log In
               </button>
+              </form>
               <hr class="my-4" />
-              <button
+
+              <form action="sign_up.php">
+              <button 
                 class="btn btn-lg btn-secondary btn-block text-uppercase"
                 type="submit"
+              
               >
+              </form>
                 Register
               </button>
-            </form>
+           
           </div>
         </div>
       </div>
