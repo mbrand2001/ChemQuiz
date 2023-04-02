@@ -27,7 +27,7 @@ function signUp(){
         }
         if(req.responseText == 1){ 
             document.getElementById('warning').innerText="User Created!"
-            refreshTable(script)
+          
         }
         else{ 
             document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
