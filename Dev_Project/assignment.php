@@ -126,7 +126,7 @@
         <button class="btn btn-primary" id="submit_assignment" type="button" onclick="submitAssignment();">Finish Assignment</button>
         <b id="grade"></b>
         <br><br>
-        <a href='student_dash.php'><input class='btn btn-primary gray' type='button' value='Back to dashboard'/></a>
+        <a href='student_dash.php'><input class='btn btn-primary gray' type='button' value='Home'/></a>
         <br>
         <br>
         </div>
