@@ -38,9 +38,9 @@
     include("includes/classes.php");
     session_start();
 
-    $test_user = $_SESSION["student"];
+    $user = $_SESSION["user"];
 
-    $valid_assignments = $test_user->getAssignmentsDue(); 
+    $valid_assignments = $user->getAssignmentsDue(); 
     $current_assignment_id = $_GET["assignment"];
 
     $valid = 0;
@@ -63,9 +63,10 @@
     $stmt->bind_result($ID,$CID,$name,$type,$date,$num_attempts,$is_active); 
     $stmt->close();
     $assignment = new Assignment($current_assignment_id,$CID,$name,$type,$date,$num_attempts,$is_active);
-    //$_SESSION['current_assignment']
+    $_SESSION['assignment'] = $assignment;
 
-    $questions = $assignment->beginAssignment($test_user->user_id);
+    $questions = $assignment->beginAssignment($user->user_id);
+    $_SESSION['questions'] = $questions;
     $index = 0;
     $questionnumber = 1;
 

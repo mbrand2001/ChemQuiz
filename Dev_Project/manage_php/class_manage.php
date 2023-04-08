@@ -3,9 +3,43 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include("../includes/db_connect.php");
+include("../includes/classes.php");
 session_start();
-if (!isset($_SESSION['role']) || ($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor')) {
-    header('Location: ../index.php');
+if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor'){ 
+  header('Location: ../index.php');
+  exit();
+}
+
+
+//Create Class
+
+
+if( isset($_POST['click'])){
+if(isset($_POST['c_name']) && isset($_POST['p_id'])){ 
+  if(!empty($_POST['c_name']) && !empty($_POST['p_id'] && !empty($_POST['click']))){
+    $c_name=$_POST['c_name'];
+    $p_id=$_POST['p_id'];
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $code = '';
+    for ($i = 0; $i < 10; $i++) {
+      $code .= $characters[rand(0, strlen($characters) - 1)];
+    }
+
+    $stmt = $conn->prepare("INSERT INTO Class(Class_name,Professor_id,Code) VALUES (?,?,?)"); 
+    $stmt->bind_param("sss",$c_name,$p_id,$code); 
+    if(!$stmt->execute()) echo $stmt->error;
+    echo"1";
+    exit();
+
+  }
+  else{ 
+    echo"-1";
+    exit();
+  }
+   
+}
+else{ 
+    echo"-2";
     exit();
 }
 
@@ -54,24 +88,58 @@ if (isset($_POST['edit'])) {
     }
 }
 
-// Delete Class
-if (isset($_POST['delete'])) {
-    if (isset($_POST['id'])) {
-        if (!empty($_POST['id'])) {
-            $id = $_POST['id'];
-            $stmt = $conn->prepare("DELETE FROM Class where Class_id = ?");
-            $stmt->bind_param("i", $id);
-            if (!$stmt->execute()) echo $stmt->error;
-            echo "1";
-            exit();
-        } else {
-            echo "-1";
-            exit();
-        }
-    } else {
-        echo "-2";
-        exit();
-    }
+
+?>
+
+
+
+
+
+
+<html> 
+<head> 
+<title>Manage Classes</title>
+<script src="../javascript/Async.js"></script>
+</head> 
+<body> 
+<h1 id=warning></h1>
+<h1> Welcome admin!</h1>
+<div id="table area"> 
+<?php
+if((isset($_GET['refresh']) && $_GET['refresh'] == 1) || empty($_REQUEST)){
+
+$sql ="SELECT * FROM Class"; 
+$result = $conn->query($sql);
+if($result->num_rows > 0){ 
+  
+  echo "<table id='table'>";
+    echo"<th>";
+    echo"<tr>"; 
+    echo"<td>Class Id</td>";
+    echo"<td>Class Name</td>";
+    echo"<td>Professor Id</td>"; 
+    echo"<td>Code</td>"; 
+    echo"</tr>";
+    echo"</th>";
+  while($row = $result->fetch_assoc()){ 
+    
+    echo"<tr>";
+    echo"<td>".$row['Class_id']."</td>";
+    echo"<td>".$row['Class_name']."</td>";
+    echo"<td>".$row['Professor_id']."</td>";
+    echo"<td>".$row['Code']."</td>";
+    echo"</tr>";
+    
+    
+    
+
+  }
+
+  echo "</table>";
+}
+if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
+exit();
+}
 }
 ?>
 <!DOCTYPE html>

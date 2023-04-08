@@ -1,8 +1,10 @@
 <?php
+    include("../includes/classes.php");
     session_start();
-    if($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor'){ 
-      exit();
-    }
+    if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor'){ 
+        header('Location: ../index.php');
+        exit();
+      }
     if (isset($_FILES["image"])) {
         $target_dir = "diagrams/"; // Directory where the file will be uploaded
         $target_file = $target_dir . basename($_FILES["image"]["name"]);

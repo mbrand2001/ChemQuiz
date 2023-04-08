@@ -1,14 +1,16 @@
+
 <?php
+include("includes/classes.php");
 session_start();
-if($_SESSION['role'] != 'student'){ 
+$user = $_SESSION["user"];
+
+if($_SESSION['user']->role != 'student'){ 
     header('Location: index.php');
     exit();
 }
 
 
-?>
-<?php
-include("includes/classes.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +30,7 @@ include("includes/classes.php");
         <link rel="stylesheet" type="text/css" href="styles/style.css">
         <!-- Local JS -->
         <script src="javascript/logout_script.js"></script>
+        <script src="javascript/Register.js"></script>
         <script src="js/layout.js"></script>
         <script src="js/dashboard.js"></script>
         <script src="js/internal-project.js"></script>
@@ -73,15 +76,14 @@ include("includes/classes.php");
         </thead>
         <tbody>
         <?php 
-        // use sessions to init student class! 
-        $test_user = new Student(1,"test","test","email","student","1","2","3","4","5");
-        $_SESSION["student"] = $test_user;
-        $assignments_due = $test_user->getAssignmentsDue(); 
-
-        session_start();
-
-            
-            
+       
+        
+        /*
+        $_SESSION["user"] = new Student(1,'a','a','a','a',1,2,3,4,5);
+        $user = $_SESSION["user"];
+        */
+        $assignments_due = $user->getAssignmentsDue(); 
+        
 
             foreach($assignments_due as $assignment){ 
                 echo " <tr>";
@@ -137,6 +139,12 @@ include("includes/classes.php");
         </div>
     </div>
 </div>
+<form id="register_class">
+    <b id="response"></b>
+    <label for="class_code">Class_Code</label>
+    <input type="text" name="class_code" id="class_code"/>
+    <button type="button" onclick="registerClass();">Submit</button>
+        </form>
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
