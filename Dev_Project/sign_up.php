@@ -62,6 +62,7 @@ if( isset($_POST['click'])){
 
             <form onkeydown="return event.key != 'Enter';" class="form-signin" id="sign_up">
               <div class="form-label-group">
+              <label for="fname">First name</label>
               <input
                   type="fname"
                   id="fname"
@@ -72,7 +73,7 @@ if( isset($_POST['click'])){
                   required
                   autofocus
                 />
-                <label for="fname">First name</label>
+                <label for="lname">Last name</label>
                 <input
                   type="lname"
                   id="lname"
@@ -83,9 +84,10 @@ if( isset($_POST['click'])){
                   required
                   autofocus
                 />
-                <label for="lname">Last name</label>
+
               
-              
+                
+                <label for="email">Email address</label>
                 <input
                   type="email"
                   id="email"
@@ -96,9 +98,9 @@ if( isset($_POST['click'])){
                   required
                   autofocus
                 />
-                <label for="email">Email address</label>
               </div>
 
+              <label for="password">Password</label>
               <div class="form-label-group">
                 <input
                   type="password"
@@ -109,8 +111,8 @@ if( isset($_POST['click'])){
                   placeholder="Password"
                   required
                 />
-                <label for="password">Password</label>
               </div>
+              <hr class="my-4" /> 
               <input type="hidden" value="1" name="click"/>
               <button
                 class="btn btn-lg btn-primary btn-block text-uppercase"
@@ -119,7 +121,7 @@ if( isset($_POST['click'])){
               >
                 Sign Up
               </button>
-              <hr class="my-4" />
+              
               </button>
             </form>
           </div>

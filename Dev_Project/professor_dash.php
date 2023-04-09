@@ -5,12 +5,6 @@ if($_SESSION['user']->role != 'professor'){
     header('Location: index.php');
     exit();
 }
-
-
-?>
-
-<?php
-include("includes/classes.php");
 ?>
 
 <!DOCTYPE html>

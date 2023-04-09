@@ -102,6 +102,77 @@ if($_SESSION['user']->role != 'student'){
             echo "</div>";
             ?>
 
+<div class="container-rounded">
+        <table class='table'>
+        <thead>
+        <tr>
+        <th scope='col'>Classes</th>
+        <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php 
+       
+        
+        /*
+        $_SESSION["user"] = new Student(1,'a','a','a','a',1,2,3,4,5);
+        $user = $_SESSION["user"];
+        */
+        $assignments_due = $user->getAssignmentsDue(); 
+        $classes = $user->getClasses();
+        //echo $classes;
+        var_dump($classes);
+
+            foreach($assignments_due as $assignment){ 
+                echo " <tr>";
+                echo " <td>Class: ".$assignment[1]."<br />";
+                echo " Professor: ".$assignment[1]."<br></td>";
+                echo " <td><button onclick='beginAssignment($assignment[0]);' type='button' class='btn btn-view btn-primary'><i class='fas fa-eye'></i> View</button></td>";
+                //echo "Assignment Id: ". $assignment[0]."<br>";
+                //echo "Assignment Name: ". $assignment[1]."<br>";
+                //echo "Assignment Due: ". $assignment[2]."<br>";
+                //echo "Assignment Active: ". $assignment[3]."<br>";
+                //echo "<br>";
+                //echo "<br>";
+            }
+            echo ' </tbody>';
+            echo "</table>";
+            echo "</div>";
+            ?>
+
+
+        <?php
+        
+            $sql ="SELECT Class.Class_id,Class.Class_name,Users.First_Name,Users.Last_Name FROM Class Inner JOIN Users on Users.User_ID=Class.Professor_id"; //and Users.Role='professor'"; 
+            $result = $conn->query($sql);
+            if($result->num_rows > 0){ 
+            echo "<table class='table table-striped'>";
+            echo"<thead>";
+            echo"<tr>";
+            echo"<th>Class Id</th>";
+            echo"<th>Class Name</th>";
+            echo"<th>Professor First Name</th>";
+            echo"<th>Professor Last Name</th>";
+            echo"</tr>";
+            echo"</thead>";
+            echo"<tbody>";
+            while($row = $result->fetch_assoc()){
+
+            echo"<tr>";
+            echo"<td>".$row['Class_id']."</td>";
+            echo"<td>".$row['Class_name']."</td>";
+            echo"<td>".$row['First_Name']."</td>";
+            echo"<td>".$row['Last_Name']."</td>";
+            echo"</tr>";
+
+            }
+            echo"</tbody>";
+            echo "</table>";
+            }
+
+        ?>
+
+
         </div>
         <!-- Right column -->
         <div class="col-md-9">
@@ -119,20 +190,6 @@ if($_SESSION['user']->role != 'student'){
                             echo "<p class='card-text'>".$array[0]->Text."</p>";
                             echo "<p class='card-text'><small class='text-muted'>".$array[0]->Date."</small></p>";
                         ?>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">New Schedule for Mondays</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra, velit in fringilla ultrices, elit eros suscipit elit, non ullamcorper justo tellus vel sapien. Morbi laoreet enim in ligula dictum, a ullamcorper enim finibus. Sed at aliquet mi, a commodo ex.</p>
-                        <p class="card-text"><small class="text-muted">Posted on Feb 10, 2023</small></p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Science Fair Announcement</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra, velit in fringilla ultrices, elit eros suscipit elit, non ullamcorper justo tellus vel sapien. Morbi laoreet enim in ligula dictum, a ullamcorper enim finibus. Sed at aliquet mi, a commodo ex.</p>
-                        <p class="card-text"><small class="text-muted">Posted on Mar 1, 2023</small></p>
                     </div>
                 </div>
             </div>
