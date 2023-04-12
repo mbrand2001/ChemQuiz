@@ -135,14 +135,22 @@ if($_SESSION['user']->role != 'student'){
                 //echo "<br>";
                 //echo "<br>";
             }
-            echo ' </tbody>';
-            echo "</table>";
-            echo "</div>";
             ?>
+
+            </tbody>
+            </table>
+            <form id="register_class">
+    <b id="response"></b>
+    <label for="class_code">Class_Code</label>
+    <input type="text" name="class_code" id="class_code"/>
+    <button type="button" onclick="registerClass();">Submit</button>
+        </form>
+
+            </div>
 
 
         <?php
-        
+
             $sql ="SELECT Class.Class_id,Class.Class_name,Users.First_Name,Users.Last_Name FROM Class Inner JOIN Users on Users.User_ID=Class.Professor_id"; //and Users.Role='professor'"; 
             $result = $conn->query($sql);
             if($result->num_rows > 0){ 
@@ -173,6 +181,7 @@ if($_SESSION['user']->role != 'student'){
         ?>
 
 
+
         </div>
         <!-- Right column -->
         <div class="col-md-9">
@@ -196,12 +205,7 @@ if($_SESSION['user']->role != 'student'){
         </div>
     </div>
 </div>
-<form id="register_class">
-    <b id="response"></b>
-    <label for="class_code">Class_Code</label>
-    <input type="text" name="class_code" id="class_code"/>
-    <button type="button" onclick="registerClass();">Submit</button>
-        </form>
+
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
