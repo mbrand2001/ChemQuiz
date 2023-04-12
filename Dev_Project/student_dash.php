@@ -152,7 +152,7 @@ if($_SESSION['user']->role != 'student'){
         <?php
 
             //$sql ="SELECT Class.Class_id,Class.Class_name,Users.First_Name,Users.Last_Name FROM Class Inner JOIN Users on Users.User_ID=Class.Professor_id"; //and Users.Role='professor'"; 
-            $sql = "SELECT Class.Class_id, Class.Class_name, Users.First_Name, Users.Last_Name FROM Class JOIN Users ON Class.Professor_id = Users.User_ID WHERE Class_id = (SELECT Class_1 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_2 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_3 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_4 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_5 FROM Users WHERE User_ID = $user->user_id)";
+            $sql = "SELECT  Class.Class_name,  Users.Last_Name FROM Class JOIN Users ON Class.Professor_id = Users.User_ID WHERE Class_id = (SELECT Class_1 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_2 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_3 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_4 FROM Users WHERE User_ID = $user->user_id) OR Class_id = (SELECT Class_5 FROM Users WHERE User_ID = $user->user_id)";
 
             $result = $conn->query($sql);
             if($result->num_rows > 0){ 
