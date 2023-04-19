@@ -121,7 +121,7 @@ if($_SESSION['user']->role != 'student'){
         $assignments_due = $user->getAssignmentsDue(); 
         $classes = $user->getClasses();
         //echo $classes;
-        var_dump($classes);
+        //var_dump($classes);
 
             foreach($assignments_due as $assignment){ 
                 echo " <tr>";
@@ -136,14 +136,14 @@ if($_SESSION['user']->role != 'student'){
                 //echo "<br>";
             }
             ?>
-
+            
             </tbody>
             </table>
             <form id="register_class">
     <b id="response"></b>
-    <label for="class_code">Class_Code</label>
-    <input type="text" name="class_code" id="class_code"/>
-    <button type="button" onclick="registerClass();">Submit</button>
+    <label for="class_code">Class code</label>
+    <input type="text" style="width:auto;"name="class_code" id="class_code"/>
+    <button type="button" class="btn btn-view btn-primary" onclick="registerClass();">Submit</button>
         </form>
 
             </div>
