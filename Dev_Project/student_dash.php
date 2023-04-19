@@ -111,44 +111,6 @@ if($_SESSION['user']->role != 'student'){
         </tr>
         </thead>
         <tbody>
-        <?php 
-       
-        
-        /*
-        $_SESSION["user"] = new Student(1,'a','a','a','a',1,2,3,4,5);
-        $user = $_SESSION["user"];
-        */
-        $assignments_due = $user->getAssignmentsDue(); 
-        $classes = $user->getClasses();
-        //echo $classes;
-        //var_dump($classes);
-
-            foreach($assignments_due as $assignment){ 
-                echo " <tr>";
-                echo " <td>Class: ".$assignment[1]."<br />";
-                echo " Professor: ".$assignment[1]."<br></td>";
-                echo " <td><button onclick='beginAssignment($assignment[0]);' type='button' class='btn btn-view btn-primary'><i class='fas fa-eye'></i> View</button></td>";
-                //echo "Assignment Id: ". $assignment[0]."<br>";
-                //echo "Assignment Name: ". $assignment[1]."<br>";
-                //echo "Assignment Due: ". $assignment[2]."<br>";
-                //echo "Assignment Active: ". $assignment[3]."<br>";
-                //echo "<br>";
-                //echo "<br>";
-            }
-            ?>
-            
-            </tbody>
-            </table>
-            <form id="register_class">
-    <b id="response"></b>
-    <label for="class_code">Class code</label>
-    <input type="text" style="width:auto;"name="class_code" id="class_code"/>
-    <button type="button" class="btn btn-view btn-primary" onclick="registerClass();">Submit</button>
-        </form>
-
-            </div>
-
-
         <?php
 
             //$sql ="SELECT Class.Class_id,Class.Class_name,Users.First_Name,Users.Last_Name FROM Class Inner JOIN Users on Users.User_ID=Class.Professor_id"; //and Users.Role='professor'"; 
@@ -179,6 +141,21 @@ if($_SESSION['user']->role != 'student'){
             }
 
         ?>
+
+            </tbody>
+            </table>
+            <form id="register_class">
+    <b id="response"></b>
+    <b> Add a class</b><br />
+    <label for="class_code">Class code</label>
+    <input type="text" style="width:auto;"name="class_code" id="class_code"/>
+    <button type="button" class="btn btn-view btn-primary" onclick="registerClass();">Submit</button>
+        </form>
+
+            </div>
+
+
+        
 
 
 
