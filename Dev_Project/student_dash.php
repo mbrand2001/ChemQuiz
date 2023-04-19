@@ -159,9 +159,8 @@ if($_SESSION['user']->role != 'student'){
             echo "<table class='table table-striped'>";
             echo"<thead>";
             echo"<tr>";
-            echo"<th>Class Id</th>";
+
             echo"<th>Class Name</th>";
-            echo"<th>Professor First Name</th>";
             echo"<th>Professor Last Name</th>";
             echo"</tr>";
             echo"</thead>";
@@ -169,9 +168,8 @@ if($_SESSION['user']->role != 'student'){
             while($row = $result->fetch_assoc()){
 
             echo"<tr>";
-            echo"<td>".$row['Class_id']."</td>";
+
             echo"<td>".$row['Class_name']."</td>";
-            echo"<td>".$row['First_Name']."</td>";
             echo"<td>".$row['Last_Name']."</td>";
             echo"</tr>";
 
