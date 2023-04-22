@@ -27,9 +27,11 @@ function Login(){
             document.getElementById('warning').innerText="logged in"
             window.location.replace("professor_dash.php");
         }
-        else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+        if(req.responseText == -5){
+            document.getElementById('warning').innerText="Incorrect Credentials"
+       
         }
+       
         }
     };
    
@@ -92,6 +94,10 @@ function createUser(){
             document.getElementById('warning').innerText="User Created!"
             refreshTable(script)
         }
+        if(req.responseText == -3){ 
+            document.getElementById('warning').innerText="Invalid Email!"
+
+        }
         else{ 
             document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
         }
@@ -126,6 +132,9 @@ function createClass(){
         if(req.responseText == 1){ 
             document.getElementById('warning').innerText="Class Created!"
             refreshTable(script)
+        }
+        if(req.responseText == -10){ 
+            document.getElementById('warning').innerText="Professor Already Teaching Class!"
         }
         else{ 
             document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
@@ -409,6 +418,7 @@ function deleteAnnouncement(){
             document.getElementById('warning').innerText="Announcement Deleted!"
             refreshTable(script)
         }
+      
         else{ 
             document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
         }
@@ -427,6 +437,7 @@ function editUser(){
     var formData = new FormData( document.getElementById("user_edit")); 
     req.onreadystatechange=function(){ 
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText)
         if(req.responseText == -2){ 
             document.getElementById('warning').innerText="Missing Parameters!"
         }
@@ -436,6 +447,10 @@ function editUser(){
         if(req.responseText == 1){ 
             document.getElementById('warning').innerText="User Changed!"
             refreshTable(script)
+        }
+        if(req.responseText == -3){ 
+            document.getElementById('warning').innerText="Invalid Email!"
+
         }
         else{ 
             document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
@@ -578,6 +593,7 @@ function editAnnouncement(){
     var formData = new FormData( document.getElementById("announcement_edit")); 
     req.onreadystatechange=function(){ 
         if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText.trim())
         if(req.responseText == -2){ 
             document.getElementById('warning').innerText="Missing Parameters!"
         }

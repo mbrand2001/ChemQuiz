@@ -29,6 +29,9 @@ function signUp(){
             document.getElementById('warning').innerText="User Created!"
           
         }
+        if(req.responseText == -3){ 
+            document.getElementById('warning').innerText="Invalid email format";
+        }
         else{ 
             document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
         }

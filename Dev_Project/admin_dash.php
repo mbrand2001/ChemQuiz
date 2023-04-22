@@ -12,6 +12,7 @@ if($_SESSION['user']->role != 'admin'){
     <!-- Start of head -->
     <head>
         <title>CHEMQuiz</title>
+    
         <meta charset="UTF-8">
         <meta name="description" content="CHEMQuiz.">
         <meta name="keywords" content="Chem practice problems">
@@ -42,9 +43,22 @@ if($_SESSION['user']->role != 'admin'){
           <div id="logo-div">
             <a>
               <b>CHEMQuiz</b>
+              <a href="manage_php/announcement_manage.php">Manage Announcements</a>
+              <a href="manage_php/assignment_manage.php">Manage Assignments</a>
+              <a href="manage_php/class_manage.php">Manage Classes </a>
+              <a href="manage_php/question_manage.php">Manage Questions</a>
+              <?php 
+              if($_SESSION['user']->role == 'admin'){
+               echo '<a href="manage_php/user_manage.php">Manage Users</a>';
+              }
+              ?>
+            </a>
+            
+            </a>
             </a>
           </div>
         </div>
+      
         <div id="right-side">
           <div class="link-nav"><a style="color:black; text-decoration:none;" href="./dashboard.php">Back To Dashboard</a></div>
           <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div>

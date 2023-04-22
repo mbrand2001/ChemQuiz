@@ -7,6 +7,10 @@ if( isset($_POST['click'])){
         $fname=$_POST['fname'];
         $lname=$_POST['lname'];
         $email=$_POST['email'];
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          echo -3;
+          exit(0);
+        }
         $password= password_hash($_POST['password'], PASSWORD_DEFAULT);
         $role=$_POST['role'];
     

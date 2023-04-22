@@ -3,7 +3,7 @@ include("../includes/db_connect.php");
 include("../includes/classes.php");
 session_start();
 if($_SESSION['user']->role != 'admin'){ 
-  header('Location: index.php');
+  header('Location: ../index.php');
   exit();
 }
 
@@ -20,6 +20,10 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) &&
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
     $email=$_POST['email'];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      echo -3;
+      exit(0);
+    }
     $password= password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role=$_POST['role'];
 
@@ -49,6 +53,10 @@ if( isset($_POST['edit'])){
       $fname=$_POST['fname'];
       $lname=$_POST['lname'];
       $email=$_POST['email'];
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo -3;
+        exit(0);
+      }
       $password= password_hash($_POST['password'], PASSWORD_DEFAULT);
       $role=$_POST['role'];
   
@@ -151,7 +159,51 @@ if(isset($_POST['user_class_list'])){
 
 }
 
+if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 
+  $sql ="SELECT User_ID,First_Name,Last_Name,Email,Role,Class_1,Class_2,Class_3,Class_4,Class_5 FROM Users"; 
+  $result = $conn->query($sql);
+  if($result->num_rows > 0){ 
+    
+    echo "<table class='table table-striped'>";
+      echo"<thead>";
+      echo"<tr>"; 
+      echo"<th>User Id</th>";
+      echo"<th>First Name</th>";
+      echo"<th>Last Name</th>"; 
+      echo"<th>Email</th>"; 
+      echo"<th>Role</th>"; 
+      echo"<th>Class 1</th>"; 
+      echo"<th>Class 2</th>"; 
+      echo"<th>Class 3</th>"; 
+      echo"<th>Class 4</th>"; 
+      echo"<th>Class 5</th>"; 
+      echo"</tr>";
+      echo"</thead>";
+      echo"<tbody>";
+    while($row = $result->fetch_assoc()){ 
+      //echo $row['First_Name'] . $row['Last_Name'] . $row['Email'] . $row['Role'];
+      echo"<tr>";
+      echo"<td>".$row['User_ID']."</td>";
+      echo"<td>".$row['First_Name']."</td>";
+      echo"<td>".$row['Last_Name']."</td>";
+      echo"<td>".$row['Email']."</td>";
+      echo"<td>".$row['Role']."</td>";
+      echo"<td>".$row['Class_1']."</td>";
+      echo"<td>".$row['Class_2']."</td>";
+      echo"<td>".$row['Class_3']."</td>";
+      echo"<td>".$row['Class_4']."</td>";
+      echo"<td>".$row['Class_5']."</td>"; 
+      echo"</tr>";
+      
+    }
+    echo"</tbody>";
+    echo "</table>";
+  }
+  if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
+  exit();
+  }
+  }
 
 
 
@@ -172,9 +224,18 @@ if(isset($_POST['user_class_list'])){
 <div class="container-fluid">
 <h1 id="warning"></h1>
 <h1>Welcome admin!</h1>
-<div id="table_area" class="table-responsive"> 
+<a href="announcement_manage.php">Manage Announcements</a>
+              <a href="assignment_manage.php">Manage Assignments</a>
+              <a href="class_manage.php">Manage Classes </a>
+              <a href="question_manage.php">Manage Questions</a>
+              <?php 
+              if($_SESSION['user']->role == 'admin'){
+               echo '<a href="user_manage.php">Manage Users</a>';
+              }
+              ?>
+<div id="table area" class="table-responsive"> 
 <?php
-if((isset($_GET['refresh']) && $_GET['refresh'] == 1) || empty($_REQUEST)){
+
 
 $sql ="SELECT User_ID,First_Name,Last_Name,Email,Role,Class_1,Class_2,Class_3,Class_4,Class_5 FROM Users"; 
 $result = $conn->query($sql);
@@ -218,7 +279,7 @@ if($result->num_rows > 0){
 if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 exit();
 }
-}
+
 ?>
 </div>  
 <br/>

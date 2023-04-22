@@ -1,11 +1,12 @@
 <?php
 include("../includes/db_connect.php");
+include("../includes/classes.php");
 session_start();
-if($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'professor'){ 
+if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor'){ 
   header('Location: ../index.php');
   exit();
 }
-
+$user = $_SESSION['user'];
 
 
 //Create Question
@@ -139,6 +140,15 @@ if( isset($_POST['delete'])){
 <body> 
 <h1 id=warning></h1>
 <h1> Welcome admin!</h1>
+<a href="announcement_manage.php">Manage Announcements</a>
+              <a href="assignment_manage.php">Manage Assignments</a>
+              <a href="class_manage.php">Manage Classes </a>
+              <a href="question_manage.php">Manage Questions</a>
+              <?php 
+              if($_SESSION['user']->role == 'admin'){
+               echo '<a href="user_manage.php">Manage Users</a>';
+              }
+              ?>
 <div id="table area"> 
 <?php
 if((isset($_GET['refresh']) && $_GET['refresh'] == 1) || empty($_REQUEST)){

@@ -1,0 +1,17 @@
+Style Nav bar
+
+Fix admin dash 
+
+Standardize style 
+
+Announcements:
+ fix logo 
+Style delete announcements
+
+
+Assignments: 
+Integrate functional components 
+
+Questions: 
+Style all of it
+

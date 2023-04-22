@@ -39,23 +39,55 @@
     session_start();
 
     $user = $_SESSION["user"];
-
-    $valid_assignments = $user->getAssignmentsDue(); 
     $current_assignment_id = $_GET["assignment"];
+    if($user->role == "student" ){
+    $valid_assignments = $user->getAssignmentsDue(); 
+   
+    }
+    if($user->role == "professor" || $user->role =="admin"){
+        $classes = array();
+        $sql = "select * from Class where Professor_id = ".$user->user_id."";
+        $result = $conn->query($sql);
+        
+        if($result->num_rows > 0){
+         while($row = $result->fetch_assoc()){
+            $class = new Class_Container($row["Class_id"],$row["Class_name"],"","","");
+
+
+            array_push($classes,$class);
+         }   
+        }
+        
+        
+        $valid_assignments = array();
+        foreach($classes as $class){ 
+            $assignments_due = $class->getAssignments();
+        
+
+        foreach($assignments_due as $assignment){ 
+            array_push($valid_assignments,$assignment);
+
+
+        }}
+
+      
+    
+    }
 
     $valid = 0;
 
     foreach($valid_assignments as $assignment){ 
-        
+      
         if($assignment[0] == $current_assignment_id){ 
             $valid = 1;
         }
     }
-
+/*
     if($valid === 0){ 
         header('Location: assignments.php');
         exit;
     }
+    */
 
     $stmt = $conn->prepare("Select * from Assignments where Assignment_id = ?");
     $stmt->bind_param("i",$current_assignment_id); 

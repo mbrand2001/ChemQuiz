@@ -168,14 +168,20 @@ if($_SESSION['user']->role != 'student'){
                 <div class="card">
                     <div class="card-body">
                         <?php 
+                            foreach($user->getClasses() as $id){
+
+                            
                               $Announcement_Class =  new Announcements();
-                              $array = $Announcement_Class->getEntries(1); 
-                              // var_dump($array);
-                            echo "<h5 class='card-title'>".$array[0]->Class_id."</h5>";
-                            echo "<h5 class='card-title'>".$array[0]->Class_Name."</h5>";
-                            echo "<p class='card-text'>".$array[0]->Text."</p>";
+                              $array = $Announcement_Class->getEntries($id);
+
+                            foreach($array as $announce){
+                            echo "<h5 class='card-title'>".$announce->Class_id."</h5>";
+                            echo "<h5 class='card-title'>".$announce->Class_Name."</h5>";
+                            echo "<p class='card-text'>".$announce->Text."</p>";
                             echo "<p class='card-text'><small class='text-muted'>".$array[0]->Date."</small></p>";
-                        ?>
+                            }
+                        }
+                       ?>
                     </div>
                 </div>
             </div>

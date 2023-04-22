@@ -1,7 +1,10 @@
 <?php
 include("includes/classes.php");
 session_start();
-if($_SESSION['user']->role != 'professor'){ 
+$user = $_SESSION["user"];
+
+
+if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor' ){ 
     header('Location: index.php');
     exit();
 }
@@ -63,20 +66,28 @@ if($_SESSION['user']->role != 'professor'){
         <table class='table'>
         <thead>
         <tr>
-        <th scope='col'>Students</th>
+        <th scope='col'>Assignments</th>
         <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
         <?php 
-        // use sessions to init student class! 
-        $test_user = new Student(1,"test","test","email","student","1","2","3","4","5");
-        $_SESSION["student"] = $test_user;
-        $assignments_due = $test_user->getAssignmentsDue(); 
+            $classes = array();
+            $sql = "select * from Class where Professor_id = ".$user->user_id."";
+            $result = $conn->query($sql);
+           
+            if($result->num_rows > 0){
+             while($row = $result->fetch_assoc()){
+                $class = new Class_Container($row["Class_id"],$row["Class_name"],"","","");
 
-        session_start();
 
+                array_push($classes,$class);
+             }   
+            }
             
+           
+            foreach($classes as $class){ 
+                $assignments_due = $class->getAssignments();
             
 
             foreach($assignments_due as $assignment){ 
@@ -91,58 +102,47 @@ if($_SESSION['user']->role != 'professor'){
                 //echo "<br>";
                 //echo "<br>";
             }
+        }
             echo ' </tbody>';
             echo "</table>";
             echo "</div>";
+            
             ?>
+            
 
         </div>
         <!-- Right column -->
         <div class="col-md-9">
             <div class="container-rounded">
-                <h4>Assignments</h4>
+                <h4>Announcments</h4>
                 <hr>
                 <div class="card">
 
 
-                <?php 
-        // use sessions to init student class! 
-        $test_user = new Student(1,"test","test","email","student","1","2","3","4","5");
-        $_SESSION["student"] = $test_user;
-        $assignments_due = $test_user->getAssignmentsDue(); 
-
-        session_start();
-
-            
-            
-
-            foreach($assignments_due as $assignment){ 
-                echo " <tr>";
-                echo " <td>Assignment: ".$assignment[1]."<br />";
-                echo " Due: ".$assignment[1]."<br></td>";
-                echo " <td><button onclick='beginAssignment($assignment[0]);' type='button' class='btn btn-view btn-primary'><i class='fas fa-eye'></i> View</button></td>";
-                //echo "Assignment Id: ". $assignment[0]."<br>";
-                //echo "Assignment Name: ". $assignment[1]."<br>";
-                //echo "Assignment Due: ". $assignment[2]."<br>";
-                //echo "Assignment Active: ". $assignment[3]."<br>";
-                //echo "<br>";
-                //echo "<br>";
-            }
-            echo ' </tbody>';
-            echo "</table>";
-            echo "</div>";
-            ?>
+        
 
 
                     <div class="card-body">
                         <?php 
-                              $Announcement_Class =  new Announcements();
-                              $array = $Announcement_Class->getEntries(1); 
+                        $Announcement_Class =  new Announcements();
+                             foreach($classes as $class){ 
+                                $array = $Announcement_Class->getEntries($class->class_id); 
+                                foreach($array as $announcement){ 
+                                    echo "<h5 class='card-title'>".$announcement->Class_id."</h5>";
+                                    echo "<h5 class='card-title'>".$announcement->Class_Name."</h5>";
+                                    echo "<p class='card-text'>".$announcement->Text."</p>";
+                                    echo "<p class='card-text'><small class='text-muted'>".$announcement->Date."</small></p>";
+
+                                }
+                             }
+                            
+
+
+
+                              
+                             
                               // var_dump($array);
-                            echo "<h5 class='card-title'>".$array[0]->Class_id."</h5>";
-                            echo "<h5 class='card-title'>".$array[0]->Class_Name."</h5>";
-                            echo "<p class='card-text'>".$array[0]->Text."</p>";
-                            echo "<p class='card-text'><small class='text-muted'>".$array[0]->Date."</small></p>";
+                           
                         ?>
                     </div>
                 </div>
