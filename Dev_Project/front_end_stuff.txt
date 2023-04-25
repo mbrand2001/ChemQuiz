@@ -1,8 +1,3 @@
 Standardize tables
-
-Assignments: 
-Integrate functional components (???)
-
-Questions: 
-Style all of it (I can't see the hints)
-
+Assignments:  Integrate functional components (???)
+Questions:  Style all of it (I can't see the hints)

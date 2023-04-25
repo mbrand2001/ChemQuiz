@@ -165,7 +165,7 @@ if( isset($_POST['click'])){
         $result = $conn->query($sql);
         if($result->num_rows > 0){ 
           
-          echo "<table id='table'>";
+          echo "<table class='table table-striped' id='table'>";
             echo"<th>";
             echo"<tr>"; 
             echo"<td>Assignment Id</td>";
@@ -346,14 +346,14 @@ Copy code
                 <h5 class="mb-0">View Assignments</h5>
             </div>
             <div class="card-body" id="table area">
-                <table class="table">
+                <table class="table table-bordered">
                    <?php
                 $sql ="SELECT * FROM Assignments"; 
         $result = $conn->query($sql);
         if($result->num_rows > 0){ 
           
-          echo "<table id='table'>";
-            echo"<th>";
+          echo "<table id='table' class='table table-bordered table-responsive'>";
+            
             echo"<tr>"; 
             echo"<td>Assignment Id</td>";
             echo"<td>Class Id</td>";
@@ -463,8 +463,8 @@ $sql ="SELECT * FROM Questions";
 $result = $conn->query($sql);
 if($result->num_rows > 0){ 
   
-  echo "<table id='table'>";
-    echo"<th>";
+  echo "<table class='table-responsive table table-bordered' style='max-width:90vw;' id='table'>";
+    
     echo"<tr>"; 
     echo"<td>Question Id</td>";
     echo"<td>Class Id</td>"; 
@@ -532,8 +532,8 @@ $sql ="SELECT * FROM Assignment_Question_List";
 $result = $conn->query($sql);
 if($result->num_rows > 0){ 
   
-  echo "<table id='table 2'>";
-    echo"<th>";
+  echo "<table class='table table-bordered' id='table 2'>";
+
     echo"<tr>"; 
     echo"<td>Entry Id</td>";
     echo"<td>Assignment Id</td>";

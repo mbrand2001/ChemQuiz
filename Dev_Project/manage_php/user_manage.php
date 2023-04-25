@@ -292,7 +292,7 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
     </nav>
 <div class="container-fluid">
 <h1 id="warning"></h1>
-<div id="table area" class="table-responsive"> 
+<div id="table area" class="table-responsive table table-bordered"> 
 <?php
 
 
@@ -300,7 +300,7 @@ $sql ="SELECT User_ID,First_Name,Last_Name,Email,Role,Class_1,Class_2,Class_3,Cl
 $result = $conn->query($sql);
 if($result->num_rows > 0){ 
   
-  echo "<table class='table table-striped'>";
+  echo "<table class='table table-bordered'>";
     echo"<thead>";
     echo"<tr>"; 
     echo"<th>User Id</th>";
