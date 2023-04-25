@@ -1,4 +1,4 @@
-Standardize style == make sure all pages have navigations and bg colors and tables
+Standardize tables
 
 Assignments: 
 Integrate functional components (???)
