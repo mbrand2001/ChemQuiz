@@ -152,6 +152,7 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <!-- Local JS -->
         <script src="../javascript/logout_script.js"></script>
+        <script src="../javascript/logout_script_manage.js"></script>
         <script src="../js/layout.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="../js/internal-project.js"></script>
@@ -206,8 +207,11 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
               if($_SESSION['user']->role == 'admin'){
                echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
               }
+              if($_SESSION['user']->role == 'professor'){
+                echo '<div class="link-nav"><a href="../professor_dash.php">Back to dashboard</a></div>';
+               }
               ?>
-        <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
+        <div class="link-nav"><a onclick="logoutcallmanage()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
     </div>
     </nav>
     <!-- Nav bar ends -->
@@ -278,46 +282,15 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
         <textarea class="form-control" id="text_entry" name="text_entry" rows="4" cols="50">Enter Announcement Here!</textarea>
       </div>
       <input type="hidden" value="1" name="edit"/>
-      <button type="button" id="editBtn" class="btn btn-primary" onclick="editAnnouncement()">Submit</button> <!-- Cant get this one to work -->
+      <button type="button" id="editBtn" class="btn btn-primary" onclick="editAnnouncement()">Submit</button>
       </form>
-
-      <script>/*
-      const editBtn = document.getElementById('editBtn');
-      const titleInput = document.getElementById('title-input');
-      const contentInput = document.getElementById('content-input');
-     // const editForm = document.getElementById('edit-form');
       
-      editBtn.addEventListener('click', () => {
-        // show the form
-       // editForm.style.display = 'block';
-        
-        // populate the form with current values
-        titleInput.value = document.getElementById('title').textContent;
-        contentInput.value = document.getElementById('content').textContent;
-      });
-      /*
-      editForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // update the post with new values
-        const updatedTitle = titleInput.value;
-        const updatedContent = contentInput.value;
-        document.getElementById('title').textContent = updatedTitle;
-        document.getElementById('content').textContent = updatedContent;
-        
-        // hide the forma
-        //editForm.style.display = 'none';
-      })
-      */;
-      </script>
-      
-      <p>Delete Announcement</p>
+      <h1 class="mt-5 mb-4">Delete Announcement</h1>
 <form id="announcement_delete">
-  <label for="id">Announcement Id:</label><br>
-  <input type="text" id="id" name="id"><br>
-  <input type="hidden" value="1" name="delete"/>
-</br>
-  <button type="button" onclick="deleteAnnouncement();">Submit</button>
+  <label for="id">Announcement ID:</label><br>
+  <input type="text" class="form-control" id="id" name="id"><br>
+  <input type="hidden" class="form-control" value="1" name="delete"/>
+  <button type="button" class="btn btn-primary" onclick="deleteAnnouncement();">Submit</button>
 </form>
 
 

@@ -172,6 +172,7 @@ exit(0);
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <!-- Local JS -->
         <script src="../javascript/logout_script.js"></script>
+        <script src="../javascript/logout_script_manage.js"></script>
         <script src="../js/layout.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="../js/internal-project.js"></script>
@@ -216,16 +217,19 @@ exit(0);
         </div>
         </div>
         <div id="right-side">
-        <div class="link-nav"><a href="/manage_php/announcement_manage.php">Manage Announcements</a></div>
-        <div class="link-nav"><a href="/manage_php/assignment_manage.php">Manage Assignments</a></div>
-        <div class="link-nav"><a href="/manage_php/class_manage.php">Manage Classes </a></div>
-        <div class="link-nav"><a href="/manage_php/question_manage.php">Manage Questions</a></div>
+        <div class="link-nav"><a href="announcement_manage.php">Manage Announcements</a></div>
+        <div class="link-nav"><a href="assignment_manage.php">Manage Assignments</a></div>
+        <div class="link-nav"><a href="class_manage.php">Manage Classes </a></div>
+        <div class="link-nav"><a href="question_manage.php">Manage Questions</a></div>
               <?php 
               if($_SESSION['user']->role == 'admin'){
                echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
               }
+              if($_SESSION['user']->role == 'professor'){
+                echo '<div class="link-nav"><a href="../professor_dash.php">Back to dashboard</a></div>';
+               }
               ?>
-        <div class="link-nav"><a onclick="logoutcall()" href="#" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
+        <div class="link-nav"><a onclick="logoutcallmanage();" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
     </div>
     </nav>
   <div class="container">

@@ -45,17 +45,28 @@ if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor' 
 <body style="border: 0px solid black;">
     <!-- Start of nav bar -->
     <nav>
-        <div id="left-side">
-        <div id="logo-div">
-            <a>
-            <img src="./imgs/logo.png" style="width:40px; height:40px;" />
-            </a>
-            </div>
-            </div>
-            <div id="right-side">
-            <div class="link-nav"><a style="color:black; text-decoration:none;" href="./student_dash.php">Back To Dashboard</a></div>
-            <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div>
+    <div id="left-side">
+       <div id="logo-div">
+        <a>
+        <img src="../imgs/logo.png" style="max-width:40px; max-height:40px;" />
+        </a>
+      </div>
+        
+        </a>
         </div>
+        </div>
+        <div id="right-side">
+        <div class="link-nav"><a href="manage_php/announcement_manage.php">Manage Announcements</a></div>
+        <div class="link-nav"><a href="manage_php/assignment_manage.php">Manage Assignments</a></div>
+        <div class="link-nav"><a href="manage_php/class_manage.php">Manage Classes </a></div>
+        <div class="link-nav"><a href="manage_php/question_manage.php">Manage Questions</a></div>
+              <?php 
+              if($_SESSION['user']->role == 'admin'){
+               echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
+              }
+              ?>
+        <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
+    </div>
     </nav>
     <!-- Nav bar ends -->
     <div class="container-fluid">

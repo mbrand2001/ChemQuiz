@@ -148,7 +148,12 @@ if( isset($_POST['delete'])){
               if($_SESSION['user']->role == 'admin'){
                echo '<a href="user_manage.php">Manage Users</a>';
               }
+              if($_SESSION['user']->role == 'professor'){
+                echo '<div class="link-nav"><a href="../professor_dash.php">Back to dashboard</a></div>';
+               }
               ?>
+        <div class="link-nav"><a onclick="logoutcallmanage()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
+
 <div id="table area"> 
 <?php
 if((isset($_GET['refresh']) && $_GET['refresh'] == 1) || empty($_REQUEST)){
