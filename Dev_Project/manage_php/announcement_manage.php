@@ -190,22 +190,24 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
     <div id="left-side">
        <div id="logo-div">
         <a>
-        <img src="../imgs/logo.png" style="max-width:40px max-height:40px" />
-        <a href="announcement_manage.php">Manage Announcements</a>
-              <a href="assignment_manage.php">Manage Assignments</a>
-              <a href="class_manage.php">Manage Classes </a>
-              <a href="question_manage.php">Manage Questions</a>
-              <?php 
-              if($_SESSION['user']->role == 'admin'){
-               echo '<a href="user_manage.php">Manage Users</a>';
-              }
-              ?>
+        <img src="../imgs/logo.png" style="max-width:40px; max-height:40px;" />
+        </a>
+      </div>
+        
         </a>
         </div>
         </div>
         <div id="right-side">
-        <div class="link-nav"><a style="color:black; text-decoration:none;" href="student_dash.php">Back To Dashboard</a></div>
-        <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div>
+        <div class="link-nav"><a href="announcement_manage.php">Manage Announcements</a></div>
+        <div class="link-nav"><a href="assignment_manage.php">Manage Assignments</a></div>
+        <div class="link-nav"><a href="class_manage.php">Manage Classes </a></div>
+        <div class="link-nav"><a href="question_manage.php">Manage Questions</a></div>
+              <?php 
+              if($_SESSION['user']->role == 'admin'){
+               echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
+              }
+              ?>
+        <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
     </div>
     </nav>
     <!-- Nav bar ends -->

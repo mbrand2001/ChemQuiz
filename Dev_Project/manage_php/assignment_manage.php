@@ -214,41 +214,77 @@ if( isset($_POST['click'])){
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHEMQuiz - Admin Panel</title>
+    <title>CHEMQuiz - Announcments</title>
+        <meta name="description" content="CHEMQuiz">
+        <meta name="keywords" content="Chem practice problems">
+        <meta name="author" content="Michael Brand, Juan Cadile">
+        <meta http-equiv="Pragma" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="expires" content="-1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- Project CSS -->
+        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <!-- Local JS -->
+        <script src="../javascript/logout_script.js"></script>
+        <script src="../js/layout.js"></script>
+        <script src="../js/dashboard.js"></script>
+        <script src="../js/internal-project.js"></script>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">    
+        <!-- Head ends -->
+    </head>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-TWIBnPHgiT67kzlGxv1np49SnW6GczHARhPXnXgzo3rjE3kB+eU6oMkxQrxnx8vvR22K+Vy0T1j47v39zyxwWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../styles/admin.css">
-    <script src="../javascript/Async.js"></script>
+    <style>
+        /* Custom styles */
+        .container-rounded {
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .btn-view {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn-submit {
+            background-color: #28a745;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">CHEMQuiz - Admin Panel</a>
-    <a href="announcement_manage.php">Manage Announcements</a>
-              <a href="assignment_manage.php">Manage Assignments</a>
-              <a href="class_manage.php">Manage Classes </a>
-              <a href="question_manage.php">Manage Questions</a>
+<nav>
+    <div id="left-side">
+       <div id="logo-div">
+        <a>
+        <img src="../imgs/logo.png" style="max-width:40px; max-height:40px;" />
+        </a>
+      </div>
+        
+        </a>
+        </div>
+        </div>
+        <div id="right-side">
+        <div class="link-nav"><a href="/manage_php/announcement_manage.php">Manage Announcements</a></div>
+        <div class="link-nav"><a href="/manage_php/assignment_manage.php">Manage Assignments</a></div>
+        <div class="link-nav"><a href="/manage_php/class_manage.php">Manage Classes </a></div>
+        <div class="link-nav"><a href="/manage_php/question_manage.php">Manage Questions</a></div>
               <?php 
               if($_SESSION['user']->role == 'admin'){
-               echo '<a href="user_manage.php">Manage Users</a>';
+               echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
               }
               ?>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../logout.php">Logout</a>
-            </li>
-        </ul>
+        <div class="link-nav"><a onclick="logoutcall()" href="#" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
     </div>
-</nav>
+    </nav>
 
 <div class="container mt-4">
 

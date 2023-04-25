@@ -1,17 +1,14 @@
-Style Nav bar
+Style Nav bar == make sure each role gets its own navigation (Help me out?)
 
-Fix admin dash 
+Fix admin dash == add the table w all the users (But we already have manage users..)
 
-Standardize style 
+Standardize style == make sure all pages have navigations and bg colors and tables
 
-Announcements:
- fix logo 
-Style delete announcements
-
+Announcements: Style delete announcements
 
 Assignments: 
-Integrate functional components 
+Integrate functional components (???)
 
 Questions: 
-Style all of it
+Style all of it (I can't see the hints)
 

@@ -38,31 +38,29 @@ if($_SESSION['user']->role != 'admin'){
     <!-- Start of body -->
     <body>
          <!-- Start of nav bar -->
-      <nav>
-        <div id="left-side">
-          <div id="logo-div">
-            <a>
-              <b>CHEMQuiz</b>
-              <a href="manage_php/announcement_manage.php">Manage Announcements</a>
-              <a href="manage_php/assignment_manage.php">Manage Assignments</a>
-              <a href="manage_php/class_manage.php">Manage Classes </a>
-              <a href="manage_php/question_manage.php">Manage Questions</a>
+         <nav>
+    <div id="left-side">
+       <div id="logo-div">
+        <a>
+        <img src="../imgs/logo.png" style="max-width:40px; max-height:40px;" />
+        </a>
+      </div>
+        
+        </a>
+        </div>
+        </div>
+        <div id="right-side">
+        <div class="link-nav"><a href="/manage_php/announcement_manage.php">Manage Announcements</a></div>
+        <div class="link-nav"><a href="/manage_php/assignment_manage.php">Manage Assignments</a></div>
+        <div class="link-nav"><a href="/manage_php/class_manage.php">Manage Classes </a></div>
+        <div class="link-nav"><a href="/manage_php/question_manage.php">Manage Questions</a></div>
               <?php 
               if($_SESSION['user']->role == 'admin'){
-               echo '<a href="manage_php/user_manage.php">Manage Users</a>';
+               echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
               }
               ?>
-            </a>
-            
-            </a>
-            </a>
-          </div>
-        </div>
-      
-        <div id="right-side">
-          <div class="link-nav"><a style="color:black; text-decoration:none;" href="./dashboard.php">Back To Dashboard</a></div>
-          <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div>
-        </div>
+        <div class="link-nav"><a onclick="logoutcall()" href="#" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
+    </div>
     </nav>
     <!-- Nav bar ends -->
     <!-- Start of dynamic elements -->
