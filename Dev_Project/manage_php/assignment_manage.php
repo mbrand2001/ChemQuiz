@@ -124,7 +124,7 @@ if( isset($_POST['click'])){
         $sql ="SELECT * FROM Assignments"; 
         $result = $conn->query($sql);
         if($result->num_rows > 0){ 
-          echo "<table class='table table-striped' id='table'>";
+          echo "<table class='table table-bordered table-responsive' id='table'>";
             echo"<th>";
             echo"<tr>"; 
             echo"<td>Assignment Id</td>";
@@ -175,6 +175,7 @@ if( isset($_POST['click'])){
           <script src="../js/layout.js"></script>
           <script src="../js/dashboard.js"></script>
           <script src="../js/internal-project.js"></script>
+          <script src="../javascript/Async.js"></script>
           <!-- Google Fonts -->
           <link rel="preconnect" href="https://fonts.googleapis.com"> 
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
