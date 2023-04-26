@@ -218,7 +218,7 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
     <div class="container-fluid">
         <div class="row">
   <div class="container">
-    <h1 class="mt-5 mb-4">Welcome admin!</h1>
+    
     <h1 id=warning></h1>
     <div id="table area">
       <?php
