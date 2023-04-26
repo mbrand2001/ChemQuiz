@@ -153,6 +153,42 @@ if( isset($_POST['click'])){
         exit();
         }
       }
+
+
+if((isset($_GET['refresh2']) && $_GET['refresh2'] == 1)){
+
+$sql ="SELECT * FROM Assignment_Question_List"; 
+$result = $conn->query($sql);
+if($result->num_rows > 0){ 
+  
+  echo "<table class='table table-bordered table-responsive' id='table 2'>";
+
+    echo"<tr>"; 
+    echo"<td>Entry ID</td>";
+    echo"<td>Assignment ID</td>";
+    echo"<td>Question ID</td>";
+    
+    echo"</tr>";
+    echo"</th>";
+  while($row = $result->fetch_assoc()){ 
+    
+    echo"<tr>";
+    echo"<td>".$row['Entry_id']."</td>";
+    echo"<td>".$row['Assignment_id']."</td>";
+    echo"<td>".$row['Question_id']."</td>";
+    echo"</tr>";
+    
+    
+    
+
+  }
+
+  echo "</table>";
+}
+if((isset($_GET['refresh2']) && $_GET['refresh2'] == 1)){
+exit();
+}
+}
 ?>
 <!DOCTYPE html>
   <html lang="en">
@@ -465,7 +501,7 @@ if( isset($_POST['click'])){
               <div class="card-body" id="table area" style="height:100%">
 
   <?php
-  if((isset($_GET['refresh2']) && $_GET['refresh2'] == 1) || empty($_REQUEST)){
+  
 
   $sql ="SELECT * FROM Assignment_Question_List"; 
   $result = $conn->query($sql);
@@ -495,15 +531,13 @@ if( isset($_POST['click'])){
 
     echo "</table>";
   }
-  if((isset($_GET['refresh2']) && $_GET['refresh2'] == 1)){
-  exit();
-  }
-  }
+  
+  
   ?>
   </div>  
 </div>
 
-
+</div>
 
   
   </br> 
