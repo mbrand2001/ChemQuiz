@@ -99,7 +99,7 @@ function createUser(){
 
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         
         }
@@ -164,7 +164,7 @@ function createAnnouncement(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -191,7 +191,7 @@ function createCalender(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -218,7 +218,7 @@ function createQuestion(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -245,7 +245,7 @@ function createAssignment(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -273,7 +273,7 @@ function deleteUser(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         
         }
@@ -303,7 +303,7 @@ function deleteQuestion(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         
         }
@@ -360,7 +360,7 @@ function deleteCalender(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -387,7 +387,7 @@ function deleteAssignment(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -416,7 +416,7 @@ function deleteAnnouncement(){
         }
       
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -449,7 +449,7 @@ function editUser(){
 
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         
         }
@@ -481,7 +481,7 @@ function editQuestion(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         
         }
@@ -539,7 +539,7 @@ function editCalender(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -567,7 +567,7 @@ function editAssignment(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -599,7 +599,7 @@ function editAnnouncement(){
             refreshTable(script)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -628,7 +628,7 @@ function addQuestion(){
             refreshTable(script, 2)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -656,7 +656,7 @@ function removeQuestion(){
             refreshTable(script, 2)
         }
         else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+            document.getElementById('warning').innerText=""
         }
         }
     };
@@ -684,7 +684,7 @@ function setUserClassList(){
                 refreshTable(script)
             }
             else{ 
-                document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
+                document.getElementById('warning').innerText=""
             }
             }
 
