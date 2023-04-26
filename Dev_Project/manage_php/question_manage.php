@@ -298,6 +298,11 @@ exit();
 </br>
 <div class="row mb-4">
 <div class="col-md-6">
+<div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Questions</h5>
+              </div>
+              <div class="card-body" id="table area">
 <p>Create Question</p>
 <form id="question_create">
   
@@ -359,10 +364,14 @@ exit();
 </br>
   <button type="button" onclick="createQuestion();">Submit</button>
 </form>
-      </div>
+      </div></div></div>
       <div class="col-md-6">
-</br> 
-</br>
+
+<div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Questions</h5>
+              </div>
+              <div class="card-body" id="table area">
 <p>Edit Question</p>
 <form id="question_edit">
   <label for="id">Question Id:</label><br>
@@ -424,6 +433,7 @@ exit();
 </br>
   <button type="button" onclick="editQuestion();">Submit</button>
 </form>
+      </div></div>
 </br> 
 </br>
 
