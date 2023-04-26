@@ -294,7 +294,11 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 <h1 id="warning"></h1>
 <div class="container mt-4">
             <h4>Manage Users</h4></br>
-            
+            <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Users</h5>
+              </div>
+              <div class="card-body" id="table area">
 <div id="table area" class="table-responsive table table-bordered"> 
 <?php
 
@@ -342,9 +346,9 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 exit();
 }
 
-?>
+?></div></div>
 </div>  
-<br/>
+<br/></br>
 <div class="card" style="height:auto;">
               <div class="card-header">
                   <h5 class="mb-0">Create User</h5>

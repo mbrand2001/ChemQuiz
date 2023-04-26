@@ -359,7 +359,7 @@ exit();
 <div class="col-md-6">
 <div class="card" style="height:auto;">
               <div class="card-header">
-                  <h5 class="mb-0">Create Question</h5>
+                  <h5 class="mb-0">Create Questions</h5>
               </div>
               <div class="card-body" id="table area">
 <form id="question_create">
@@ -427,7 +427,7 @@ exit();
 
 <div class="card" style="height:auto;">
               <div class="card-header">
-                  <h5 class="mb-0">Edit Question</h5>
+                  <h5 class="mb-0">Edit Questions</h5>
               </div>
               <div class="card-body" id="table area">
 <form id="question_edit">
