@@ -102,7 +102,7 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
   $sql = "SELECT * FROM Announcement_Entry";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
-    echo "<table class='table table-bordered'>";
+    echo "<table class='table table-bordered table-responsive'>";
     echo "<thead>";
     echo "<tr>";
     echo "<th>Entry Id</th>";
