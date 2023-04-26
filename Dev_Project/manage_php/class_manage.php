@@ -239,7 +239,11 @@ exit(0);
 
 
     <h2 id="warning" class="text-danger"></h2>
-
+    <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Classes</h5>
+              </div>
+              <div class="card-body" id="table area">
     <div id="table area">
       <?php
         if((isset($_GET['refresh']) && $_GET['refresh'] == 1) || empty($_REQUEST)){
@@ -275,28 +279,37 @@ exit(0);
         }
       ?>
     </div>
-
+      </div></div></br></br>
     <div class="row">
       <div class="col-md-4">
-        <h3>Create Class</h3>
+      <div class="card" style="height:100%;">
+              <div class="card-header">
+                  <h5 class="mb-0">Create Class</h5>
+              </div>
+              <div class="card-body" id="table area">
         <form id="class_create">
           <div class="mb-3">
             <label for="c_name" class="form-label">Class Name:</label>
             <input type="text" class="form-control" id="c_name" name="c_name">
           </div>
           <div class="mb-3">
-            <label for="p_id" class="form-label">Professor_Id:</label>
+            <label for="p_id" class="form-label">Professor ID:</label>
             <input type="text" class="form-control" id="p_id" name="p_id">
           </div>
           <input type="hidden" value="1" name="click"/>
           <button type="button" class="btn btn-primary" onclick="createClass();">Submit</button>
         </form>
-      </div>
+      </div></div></div>
+      
       <div class="col-md-4">
-        <h3>Edit Class</h3>
+      <div class="card" style="height:100%;">
+              <div class="card-header">
+                  <h5 class="mb-0">Edit Class</h5>
+              </div>
+              <div class="card-body" id="table area">
         <form id="class_edit">
           <div class="mb-3">
-            <label for="id" class="form-label">Class Id:</label>
+            <label for="id" class="form-label">Class ID:</label>
             <input type="text" class="form-control" id="id" name="id">
           </div>
           <div class="mb-3">
@@ -304,29 +317,32 @@ exit(0);
             <input type="text" class="form-control" id="c_name" name="c_name">
           </div>
           <div class="mb-3">
-            <label for="p_id" class="form-label">Professor_Id:</label>
+            <label for="p_id" class="form-label">Professor ID:</label>
             <input type="text" class="form-control" id="p_id" name="p_id">
 </div>
 <input type="hidden" value="1" name="edit"/>
 <button type="button" class="btn btn-primary" onclick="editClass();">Submit</button>
 </form>
-</div>
+</div></div></div>
 <div class="col-md-4">
-<h3>Delete Class</h3>
+<div class="card" style="height:100%;">
+              <div class="card-header">
+                  <h5 class="mb-0">Delete Class</h5>
+              </div>
+              <div class="card-body" id="table area">
 <form id="class_delete">
 <div class="mb-3">
-<label for="id" class="form-label">Class Id:</label>
+<label for="id" class="form-label">Class ID:</label>
 <input type="text" class="form-control" id="id" name="id">
 </div>
 <input type="hidden" value="1" name="delete"/>
 <button type="button" class="btn btn-danger" onclick="deleteClass();">Submit</button>
 </form>
+</div></div>
 </div>
-</div>
-
   </div>
+      </br></br>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
-      ```
