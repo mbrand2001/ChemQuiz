@@ -165,7 +165,7 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
   $result = $conn->query($sql);
   if($result->num_rows > 0){ 
     
-    echo "<table class='table table-striped'>";
+    echo "<table class='table table-bordered table-responsive'>";
       echo"<thead>";
       echo"<tr>"; 
       echo"<th>User Id</th>";

@@ -105,7 +105,7 @@ $sql ="SELECT * FROM Class";
 $result = $conn->query($sql);
 if($result->num_rows > 0){ 
   
-  echo "<table id='table' class='table table-bordered'>";
+  echo "<table id='table' class='table table-bordered table-responsive'>";
     echo"<th>";
     echo"<tr>"; 
     echo"<td>Class Id</td>";
