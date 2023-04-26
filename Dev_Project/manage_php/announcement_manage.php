@@ -221,6 +221,11 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
     
     <h1 id=warning></h1>
     <h4>Manage Announcements</h4></br>
+    <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Announcements</h5>
+              </div>
+              <div class="card-body" id="table area">
     <div id="table area">
       <?php
      
@@ -253,8 +258,12 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
         }
       
       ?>
-    </div>
-    <h4 class="mt-5 mb-4">Create Announcement</h>
+    </div></div></div></br></br>
+    <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Create Announcement</h5>
+              </div>
+              <div class="card-body" id="table area">
     <form id="announcement_create" class="mb-5">
       <div class="form-group">
         <label for="class_id">Class ID:</label>
@@ -267,8 +276,13 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
       <input type="hidden" value="1" name="click"/>
       <button type="button" class="btn btn-primary" onclick="createAnnouncement();">Submit</button>
     </form>
-
-    <h1 class="mt-5 mb-4">Edit Announcement</h1>
+      </div></div></br></br>
+      <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Edit Announcements</h5>
+              </div>
+              <div class="card-body" id="table area">
+    
     <form id="announcement_edit" class="mb-5">
       <div class="form-group">
         <label for="id">Announcement ID:</label>
@@ -284,15 +298,18 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
       </div>
       <input type="hidden" value="1" name="edit"/>
       <button type="button" id="editBtn" class="btn btn-primary" onclick="editAnnouncement()">Submit</button>
-      </form>
-      
-      <h1 class="mt-5 mb-4">Delete Announcement</h1>
+      </form></div></div></br></br>
+      <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Delete Announcements</h5>
+              </div>
+              <div class="card-body" id="table area">
 <form id="announcement_delete">
   <label for="id">Announcement ID:</label><br>
   <input type="text" class="form-control" id="id" name="id"><br>
   <input type="hidden" class="form-control" value="1" name="delete"/>
-  <button type="button" class="btn btn-primary" onclick="deleteAnnouncement();">Submit</button>
-</form>
+  <button type="button" class="btn btn-primary btn-danger" onclick="deleteAnnouncement();">Submit</button>
+</form></div></div>
 
 
 
