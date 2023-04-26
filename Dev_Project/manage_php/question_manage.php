@@ -120,6 +120,68 @@ if( isset($_POST['delete'])){
 }
 
 
+
+if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
+
+  $sql ="SELECT * FROM Questions"; 
+  $result = $conn->query($sql);
+  if($result->num_rows > 0){ 
+    
+    echo "<table id='table' class='table table-bordered table-responsive'>";
+      echo"<th>";
+      echo"<tr>"; 
+      echo"<td>Question Id</td>";
+      echo"<td>Class Id</td>"; 
+      echo"<td>Type</td>"; 
+      echo"<td>Text</td>"; 
+      echo"<td>Answers</td>";
+      echo"<td>Tags</td>";
+      echo"<td>Diagram URL</td>";
+      echo"<td>Step 1</td>";
+      echo"<td>Step 2</td>";
+      echo"<td>Step 3</td>";
+      echo"<td>Step 4</td>";
+      echo"<td>Answer 1</td>";
+      echo"<td>Answer 2</td>";
+      echo"<td>Answer 3</td>";
+      echo"<td>Answer 4</td>";
+      echo"<td>Formula</td>";
+      echo"</tr>";
+      echo"</th>";
+    while($row = $result->fetch_assoc()){ 
+      //echo $row['First_Name'] . $row['Last_Name'] . $row['Email'] . $row['Role'];
+      echo"<tr>";
+      echo"<td>".$row['Question_id']."</td>";
+      echo"<td>".$row['Class_id']."</td>";
+      echo"<td>".$row['Question_type']."</td>";
+      echo"<td>".$row['Question_text']."</td>";
+      echo"<td>".$row['Question_answers']."</td>";
+      echo"<td>".$row['Question_tag']."</td>";
+      echo"<td>".$row['Question_diagram_url']."</td>";
+      echo"<td>".$row['Step_1']."</td>";
+      echo"<td>".$row['Step_2']."</td>";
+      echo"<td>".$row['Step_3']."</td>";
+      echo"<td>".$row['Step_4']."</td>";
+      echo"<td>".$row['Step_1_answers']."</td>";
+      echo"<td>".$row['Step_2_answers']."</td>";
+      echo"<td>".$row['Step_3_answers']."</td>";
+      echo"<td>".$row['Step_4_answers']."</td>";
+      echo"<td>".$row['formula']."</td>";
+  
+      echo"</tr>";
+      
+      
+      
+  
+    }
+  
+    echo "</table>";
+  }
+  if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
+  exit();
+  }
+}
+
 ?>
 
 <html> 
@@ -195,7 +257,7 @@ if( isset($_POST['delete'])){
               <div class="card-body" id="table area">
 <div id="table area" class="table table-bordered table-responsive"> 
 <?php
-if((isset($_GET['refresh']) && $_GET['refresh'] == 1) || empty($_REQUEST)){
+
 
 $sql ="SELECT * FROM Questions"; 
 $result = $conn->query($sql);
@@ -254,7 +316,7 @@ if($result->num_rows > 0){
 if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 exit();
 }
-}
+
 ?>
 </div>  
               </div>

@@ -161,7 +161,7 @@ $sql ="SELECT * FROM Assignment_Question_List";
 $result = $conn->query($sql);
 if($result->num_rows > 0){ 
   
-  echo "<table class='table table-bordered table-responsive' id='table 2'>";
+  echo "<table class='table table-bordered table-responsive' style='width:100%'id='table 2'>";
 
     echo"<tr>"; 
     echo"<td>Entry ID</td>";
