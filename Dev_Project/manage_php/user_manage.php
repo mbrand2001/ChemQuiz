@@ -210,7 +210,7 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 ?>
 <html> 
 <head> 
-<title>Manage Classes</title>
+<title>Manage Users</title>
 <script src="../javascript/Async.js"></script>
 </head> 
 <body> 
@@ -293,6 +293,8 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 <div class="container-fluid">
 <h1 id="warning"></h1>
 <div class="container mt-4">
+            <h4>Manage Users</h4></br>
+            
 <div id="table area" class="table-responsive table table-bordered"> 
 <?php
 
@@ -343,6 +345,11 @@ exit();
 ?>
 </div>  
 <br/>
+<div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Questions</h5>
+              </div>
+              <div class="card-body" id="table area">
 <p>Create User</p>
 <form id="user_create">
   <div class="form-group">
@@ -366,16 +373,20 @@ exit();
   <div class="form-group">
     <label for="role">Role:</label>
     <input type="text" class="form-control" id="role" name="role">
-  </div>
+  </div></br>
   <input type="hidden" value="1" name="click"/>
   <button type="button" class="btn btn-primary" onclick="createUser();">Submit</button>
 </form>
-</br> 
-</br>
-<p>Edit User</p>
+
+</div></div></br></br>
+<div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Edit User</h5>
+              </div>
+              <div class="card-body" id="table area">
 <form id="user_edit">
   <div class="form-group">
-    <label for="id">User Id:</label>
+    <label for="id">User ID:</label>
     <input type="text" class="form-control" id="id" name="id">
   </div>
   <div class="form-group">
@@ -397,19 +408,24 @@ exit();
   <div class="form-group">
     <label for="role">Role:</label>
     <input type="text" class="form-control" id="role" name="role">
-  </div>
+  </div><br/>
   <input type="hidden" value="1" name="edit"/>
   <button type="button" class="btn btn-primary" onclick="editUser();">Submit</button>
 </form>
-</br> 
-</br>
-<p>Delete User</p>
+
+</div></div></br></br>
+<div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Delete User</h5>
+              </div>
+              <div class="card-body" id="table area">
+
 <form id="user_delete">
   <div class="form-group">
-    <label for="id">User Id:</label>
+    <label for="id">User ID:</label>
     <input type="text" class="form-control" id="id" name="id">
   </div>
-  <input type="hidden" value="1" name="delete"/>
+  <input type="hidden" value="1" name="delete"/></br>
   <button type="button" class="btn btn-danger" onclick="deleteUser();">Submit</button>
 </form>
 <div id="class_table_area" class="table-responsive"> 
