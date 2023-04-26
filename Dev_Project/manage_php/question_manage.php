@@ -187,7 +187,7 @@ if( isset($_POST['delete'])){
 <h1 id=warning></h1><br/>
 <h4>Manage Questions</h4><br/>
 
-<div class="col-md-12">
+<div class="col">
           <div class="card" style="height:auto;">
               <div class="card-header">
                   <h5 class="mb-0">All Questions</h5>
@@ -266,6 +266,11 @@ exit();
 <br/>
 <div class="row mb-4">
 <div class="col-md-6">
+<div class="card" style="height:100%;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Questions</h5>
+              </div>
+              <div class="card-body" id="table area">
 <p>Upload Diagram</p>
 
     <form method="post" enctype="multipart/form-data" id="upload">
@@ -274,8 +279,13 @@ exit();
         <button type="button" onclick="uploadFile();">Upload</button>
     </form>
     <b id="upload_response"></b>
-</div>
+</div></div></div>
 <div class="col-md-6">
+<div class="card" style="height:100%;">
+              <div class="card-header">
+                  <h5 class="mb-0">All Questions</h5>
+              </div>
+              <div class="card-body" id="table area">
 <p>Delete Question</p>
 <form id="question_delete">
   <label for="id">Question Id:</label><br>
@@ -284,7 +294,7 @@ exit();
 </br>
   <button type="button" onclick="deleteQuestion();">Submit</button>
 </form></div>
-</div>
+</div></div></div>
 </br>
 <div class="row mb-4">
 <div class="col-md-6">

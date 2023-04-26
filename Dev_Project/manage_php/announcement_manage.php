@@ -107,7 +107,7 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
     echo "<tr>";
     echo "<th>Entry Id</th>";
     echo "<th>Class Id</th>";
-    echo "<th>Calender Date</th>";
+    echo "<th>Calendar Date</th>";
     echo "<th>Text Entry</th>";
     echo "</tr>";
     echo "</thead>";
@@ -220,6 +220,7 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
   <div class="container">
     
     <h1 id=warning></h1>
+    <h4>Manage Announcements</h4></br>
     <div id="table area">
       <?php
      
@@ -231,7 +232,7 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
           echo "<tr>";
           echo "<th>Entry Id</th>";
           echo "<th>Class Id</th>";
-          echo "<th>Calender Date</th>";
+          echo "<th>Calendar Date</th>";
           echo "<th>Text Entry</th>";
           echo "</tr>";
           echo "</thead>";
@@ -253,7 +254,7 @@ if ((isset($_GET['refresh']) && $_GET['refresh'] == 1)) {
       
       ?>
     </div>
-    <h1 class="mt-5 mb-4">Create Announcement</h1>
+    <h4 class="mt-5 mb-4">Create Announcement</h>
     <form id="announcement_create" class="mb-5">
       <div class="form-group">
         <label for="class_id">Class ID:</label>

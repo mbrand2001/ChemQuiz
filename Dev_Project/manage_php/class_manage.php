@@ -232,8 +232,10 @@ exit(0);
         <div class="link-nav"><a onclick="logoutcallmanage();" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
     </div>
     </nav>
-  <div class="container">
-    <h1 class="text-center my-4">Manage Classes</h1>
+    <div class="container mt-4">
+  </br>
+      <h4 class="">Manage Classes</h4>
+      <br />
 
 
     <h2 id="warning" class="text-danger"></h2>
