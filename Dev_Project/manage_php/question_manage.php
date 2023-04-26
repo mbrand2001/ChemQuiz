@@ -268,31 +268,28 @@ exit();
 <div class="col-md-6">
 <div class="card" style="height:100%;">
               <div class="card-header">
-                  <h5 class="mb-0">All Questions</h5>
+                  <h5 class="mb-0">Upload Diagrams</h5>
               </div>
               <div class="card-body" id="table area">
-<p>Upload Diagram</p>
-
     <form method="post" enctype="multipart/form-data" id="upload">
         Select diagram to upload:
         <input type="file" name="image" id="image"></br></br>
-        <button type="button" onclick="uploadFile();">Upload</button>
+        <button type="button" class="btn btn-primary" onclick="uploadFile();">Upload</button>
     </form>
     <b id="upload_response"></b>
 </div></div></div>
 <div class="col-md-6">
 <div class="card" style="height:100%;">
               <div class="card-header">
-                  <h5 class="mb-0">All Questions</h5>
+                  <h5 class="mb-0">Delete Questions</h5>
               </div>
               <div class="card-body" id="table area">
-<p>Delete Question</p>
 <form id="question_delete">
-  <label for="id">Question Id:</label><br>
-  <input type="text" id="id" name="id"><br>
+  <label for="id">Question ID:</label><br/>
+  <input type="text" class="form-control" id="id" name="id"><br>
   <input type="hidden" value="1" name="delete"/>
 </br>
-  <button type="button" onclick="deleteQuestion();">Submit</button>
+  <button class="btn btn-primary" type="button" onclick="deleteQuestion();">Submit</button>
 </form></div>
 </div></div></div>
 </br>
@@ -300,22 +297,21 @@ exit();
 <div class="col-md-6">
 <div class="card" style="height:auto;">
               <div class="card-header">
-                  <h5 class="mb-0">All Questions</h5>
+                  <h5 class="mb-0">Create Question</h5>
               </div>
               <div class="card-body" id="table area">
-<p>Create Question</p>
 <form id="question_create">
   
-  <label for="class_id">Class Id:</label><br>
-  <input type="text" id="class_id" name="class_id"><br>
+  <label for="class_id">Class ID:</label><br>
+  <input  class="form-control"  type="text" id="class_id" name="class_id"><br>
   <label for="type">Question Type:</label><br>
-  <input type="text" id="type" name="type"><br>
+  <input  class="form-control"  type="text" id="type" name="type"><br>
   <label for="text"> Question Text:</label><br>
-  <textarea id="text" name="text" rows="4" cols="50">Enter Question Text Here!</textarea><br>
+  <textarea  class="form-control"  id="text" name="text" rows="4" cols="50">Enter Question Text Here!</textarea><br>
   <label for="answers">Answers:</label><br>
-  <textarea id="answers" name="answers" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea  class="form-control" id="answers" name="answers" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="tag">Question Tags:</label><br>
-  <textarea id="tag" name="tag" rows="4" cols="50">Enter Tags Here In Comma Seperated Format ex: introductory,isotopes,elements</textarea><br>
+  <textarea  class="form-control"  id="tag" name="tag" rows="4" cols="50">Enter Tags Here In Comma Seperated Format ex: introductory,isotopes,elements</textarea><br>
   <label for="imageSelect">Diagram:</label>
  <!-- <input type="text" id="url" name="url"><br> -->
  <?php
@@ -323,7 +319,7 @@ exit();
         $images = glob($imageDir . "*.{jpg,png,gif}", GLOB_BRACE);
         // Create a dropdown menu of the image files
         
-        echo "<select name='url' id='imageSelect'>";
+        echo "<select class='form-select' name='url' id='imageSelect'>";
         echo "<option value='none'>none</option>";
         foreach ($images as $image) {
             $imageName = basename($image);
@@ -341,51 +337,50 @@ exit();
     ?>
     <br>
   <label for="step_1"> Question Wrong Step 1</label><br>
-  <textarea id="step_1" name="step_1" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control" id="step_1" name="step_1" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_1_a">Step 1 Answers:</label><br>
-  <textarea id="step_1_a" name="step_1_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control"  id="step_1_a" name="step_1_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="step_2"> Question Wrong Step 2</label><br>
-  <textarea id="step_2" name="step_2" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control"  id="step_2" name="step_2" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_2_a">Step 2 Answers:</label><br>
-  <textarea id="step_2_a" name="step_2_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea  class="form-control" id="step_2_a" name="step_2_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="step_3"> Question Wrong Step 3</label><br>
-  <textarea id="step_3" name="step_3" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control" id="step_3" name="step_3" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_3_a">Step 3 Answers:</label><br>
-  <textarea id="step_3_a" name="step_3_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control" id="step_3_a" name="step_3_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="step_4"> Question Wrong Step 4</label><br>
-  <textarea id="step_4" name="step_4" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control" id="step_4" name="step_4" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_4_a">Step 4 Answers:</label><br>
-  <textarea id="step_4_a" name="step_4_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control" id="step_4_a" name="step_4_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="formula">Formula (NOTE: Please check the formula you input. This is so you can base the multiple correct answers off the result and to double check that the application interpreted the forumla correctly!):</label><br>
-  <textarea id="formula1" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
-  <p id="response1"></p><br>
-  <button type="button" onclick="checkFormula(1);"> Check Formula</button>
+  <textarea class="form-control" id="formula1" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
+  <p id="response1"></p>
+  <button  class="btn btn-primary" type="button" onclick="checkFormula(1);"> Check Formula</button>
   <input type="hidden" value="1" name="click"/>
-</br>
-  <button type="button" onclick="createQuestion();">Submit</button>
+</br><br/>
+  <button type="button"  class="btn btn-primary"  onclick="createQuestion();">Submit</button>
 </form>
       </div></div></div>
       <div class="col-md-6">
 
 <div class="card" style="height:auto;">
               <div class="card-header">
-                  <h5 class="mb-0">All Questions</h5>
+                  <h5 class="mb-0">Edit Question</h5>
               </div>
               <div class="card-body" id="table area">
-<p>Edit Question</p>
 <form id="question_edit">
   <label for="id">Question Id:</label><br>
-  <input type="text" id="id" name="id"><br>
+  <input class="form-control" type="text" id="id" name="id"><br>
   <label for="class_id">Class Id:</label><br>
-  <input type="text" id="class_id" name="class_id"><br>
+  <input class="form-control" type="text" id="class_id" name="class_id"><br>
   <label for="type">Question Type:</label><br>
-  <input type="text" id="type" name="type"><br>
+  <input class="form-control" type="text" id="type" name="type"><br>
   <lable for="text"> Question Text:</label><br>
-  <textarea id="text" name="text" rows="4" cols="50">Enter Question Text Here!</textarea><br>
+  <textarea class="form-control" id="text" name="text" rows="4" cols="50">Enter Question Text Here!</textarea><br>
   <label for="answers">Answers:</label><br>
-  <textarea id="answers" name="answers" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control" id="answers" name="answers" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="tag">Question Tags:</label><br>
-  <textarea id="tag" name="tag" rows="4" cols="50">Enter Tags Here In Comma Seperated Format ex: introductory,isotopes,elements</textarea><br>
+  <textarea class="form-control" id="tag" name="tag" rows="4" cols="50">Enter Tags Here In Comma Seperated Format ex: introductory,isotopes,elements</textarea><br>
   <label for="imageSelect">Diagram:</label>
  <!-- <input type="text" id="url" name="url"><br> -->
  <?php
@@ -393,7 +388,7 @@ exit();
         $images = glob($imageDir . "*.{jpg,png,gif}", GLOB_BRACE);
         // Create a dropdown menu of the image files
         
-        echo "<select name='url' id='imageSelect'>";
+        echo "<select class='form-select' name='url' id='imageSelect'>";
         foreach ($images as $image) {
             $imageName = basename($image);
             echo "<option value='$imageName'>$imageName</option>";
@@ -410,28 +405,28 @@ exit();
     ?>
     <br>
   <label for="step_1"> Question Wrong Step 1</label><br>
-  <textarea id="step_1" name="step_1" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control" id="step_1" name="step_1" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_1_a">Step 1 Answers:</label><br>
-  <textarea id="step_1_a" name="step_1_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control"  id="step_1_a" name="step_1_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="step_2"> Question Wrong Step 2</label><br>
-  <textarea id="step_2" name="step_2" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control" id="step_2" name="step_2" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_2_a">Step 2 Answers:</label><br>
-  <textarea id="step_2_a" name="step_2_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control" id="step_2_a" name="step_2_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="step_3"> Question Wrong Step 3</label><br>
-  <textarea id="step_3" name="step_3" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control" id="step_3" name="step_3" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_3_a">Step 3 Answers:</label><br>
-  <textarea id="step_3_a" name="step_3_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control" id="step_3_a" name="step_3_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="step_4"> Question Wrong Step 4</label><br>
-  <textarea id="step_4" name="step_4" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
+  <textarea class="form-control" id="step_4" name="step_4" rows="4" cols="50">Enter Question Step Text Here!</textarea><br>
   <label for="step_4_a">Step 4 Answers:</label><br>
-  <textarea id="step_4_a" name="step_4_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
+  <textarea class="form-control" id="step_4_a" name="step_4_a" rows="4" cols="50">Enter Answers Here In Comma Seperated Format ex: 25,25.0,25.00</textarea><br>
   <label for="formula">Formula (NOTE: Please check the formula you input. This is so you can base the multiple correct answers off the result and to double check that the application interpreted the forumla correctly!):</label><br>
-  <textarea  id="formula2" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
+  <textarea class="form-control"  id="formula2" name="formula" rows="4" cols="50">Enter Formula To Use Here</textarea><br>
   <p id="response2"></p><br>
-  <button type="button" onclick="checkFormula(2);"> Check Formula</button>
+  <button type="button" class="btn btn-primary" onclick="checkFormula(2);"> Check Formula</button>
   <input type="hidden" value="1" name="edit"/>
-</br>
-  <button type="button" onclick="editQuestion();">Submit</button>
+</br><br/>
+  <button type="button"  class="btn btn-primary" onclick="editQuestion();">Submit</button>
 </form>
       </div></div>
 </br> 
