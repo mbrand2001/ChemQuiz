@@ -347,10 +347,9 @@ exit();
 <br/>
 <div class="card" style="height:auto;">
               <div class="card-header">
-                  <h5 class="mb-0">All Questions</h5>
+                  <h5 class="mb-0">Create User</h5>
               </div>
               <div class="card-body" id="table area">
-<p>Create User</p>
 <form id="user_create">
   <div class="form-group">
     <label for="fname">First name:</label>
