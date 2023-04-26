@@ -136,9 +136,7 @@ function createClass(){
         if(req.responseText == -10){ 
             document.getElementById('warning').innerText="Professor Already Teaching Class!"
         }
-        else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
-        }
+       
         }
     };
    
@@ -334,9 +332,7 @@ function deleteClass(){
             document.getElementById('warning').innerText="Class Deleted!"
             refreshTable(script)
         }
-        else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
-        }
+   
         }
     };
    
@@ -515,9 +511,7 @@ function editClass(){
             document.getElementById('warning').innerText="Class Changed!"
             refreshTable(script)
         }
-        else{ 
-            document.getElementById('warning').innerText="Possible SQL Error, try request and again check the reponse."
-        }
+       
         }
     };
    
