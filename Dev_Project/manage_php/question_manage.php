@@ -213,9 +213,6 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
           <!-- Local JS -->
           <script src="../javascript/logout_script.js"></script>
           <script src="../javascript/logout_script_manage.js"></script>
-          <script src="../js/layout.js"></script>
-          <script src="../js/dashboard.js"></script>
-          <script src="../js/internal-project.js"></script>
           <!-- Google Fonts -->
           <link rel="preconnect" href="https://fonts.googleapis.com"> 
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -223,28 +220,35 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
           <!-- Head ends -->
 </head> 
 <body> 
-<nav>
+    <!-- Start of nav bar -->
+    <nav>
     <div id="left-side">
-      <div id="logo-div">
+       <div id="logo-div">
+        <a>
         <img src="../imgs/logo.png" style="max-width:40px; max-height:40px;" />
+        </a>
       </div>
+        
+        </a>
+        </div>
+        </div>
+        <div id="right-side">
+        <div class="link-nav"><a href="announcement_manage.php">Manage Announcements</a></div>
+        <div class="link-nav"><a href="assignment_manage.php">Manage Assignments</a></div>
+        <div class="link-nav"><a href="class_manage.php">Manage Classes </a></div>
+        <div class="link-nav"><a href="question_manage.php">Manage Questions</a></div>
+              <?php 
+              if($_SESSION['user']->role == 'admin'){
+               echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
+              }
+              if($_SESSION['user']->role == 'professor'){
+                echo '<div class="link-nav"><a href="../professor_dash.php">Back to dashboard</a></div>';
+               }
+              ?>
+        <div class="link-nav"><a onclick="logoutcallmanage()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
     </div>
-    <div id="right-side">
-      <div class="link-nav"><a href="announcement_manage.php">Manage Announcements</a></div>
-      <div class="link-nav"><a href="assignment_manage.php">Manage Assignments</a></div>
-      <div class="link-nav"><a href="class_manage.php">Manage Classes </a></div>
-      <div class="link-nav"><a href="question_manage.php">Manage Questions</a></div>
-        <?php 
-          if($_SESSION['user']->role == 'admin'){
-          echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
-          }
-          if($_SESSION['user']->role == 'professor'){
-            echo '<div class="link-nav"><a href="../professor_dash.php">Back to dashboard</a></div>';
-          }
-        ?>
-      <div class="link-nav"><a onclick="logoutcallmanage()" id="logoutbtn">Log-out</a></div>
-    </div> 
-</nav>
+    </nav>
+    <!-- Nav bar ends -->
 <div class="container mt-4">
 <h1 id=warning></h1><br/>
 <h4>Manage Questions</h4><br/>

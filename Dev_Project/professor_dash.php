@@ -73,14 +73,12 @@ if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor' 
         <div class="row">
     <!-- Left column -->
     <div class="col-md-3">
-        <div class="container-rounded">
-        <table class='table'>
-        <thead>
-        <tr>
-        <th scope='col'>Assignments</th>
-        <th scope="col"></th>
-        </tr>
-        </thead>
+    <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Assignments</h5>
+              </div>
+              <div class="card-body" id="table area">
+        <table class='table table-bordered'>
         <tbody>
         <?php 
             $classes = array();
@@ -117,16 +115,19 @@ if($_SESSION['user']->role != 'admin' && $_SESSION['user']->role != 'professor' 
             echo ' </tbody>';
             echo "</table>";
             echo "</div>";
-            
+            echo "</div>";
             ?>
             
 
         </div>
         <!-- Right column -->
         <div class="col-md-9">
-            <div class="container-rounded">
-                <h4>Announcments</h4>
-                <hr>
+        <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Announcements</h5>
+              </div>
+              <div class="card-body" id="table area">
+
                 <div class="card">
 
 

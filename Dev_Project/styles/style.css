@@ -4,6 +4,11 @@
 
 .link-nav a {
   cursor: pointer;
+  text-decoration: none;
+}
+
+.left-side{
+  height: 100%;
 }
 
 .btn btn-primary btn-sm{
@@ -16,6 +21,10 @@
 
 .tbody {
   width: 100%;
+}
+
+.a {
+  text-decoration: none !important;
 }
 
 .main-claim {

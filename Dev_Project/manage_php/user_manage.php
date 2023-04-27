@@ -228,7 +228,7 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
         <meta http-equiv="Pragma" content="no-cache, no-store, must-revalidate">
         <meta http-equiv="expires" content="-1">
         <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <!-- Project CSS -->
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <!-- Local JS -->
@@ -244,9 +244,9 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
         <!-- Head ends -->
     </head>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-TWIBnPHgiT67kzlGxv1np49SnW6GczHARhPXnXgzo3rjE3kB+eU6oMkxQrxnx8vvR22K+Vy0T1j47v39zyxwWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Custom styles */
         .container-rounded {
@@ -269,9 +269,7 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 <nav>
     <div id="left-side">
        <div id="logo-div">
-        <a>
-        <img src="../imgs/logo.png" style="max-width:40px; max-height:40px;" />
-        </a>
+        <img src="../imgs/logo.png"  id="ionalogo" class="logo"  style="max-width:40px; max-height:40px;" />
       </div>
         
         </a>
@@ -287,7 +285,7 @@ if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
                echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
               }
               ?>
-        <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
+        <div class="link-nav"><a onclick="logoutcallmanage()" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->
     </div>
     </nav>
 <div class="container-fluid">

@@ -56,7 +56,7 @@ if($_SESSION['user']->role != 'admin'){
         <div class="link-nav"><a href="/manage_php/question_manage.php">Manage Questions</a></div>
               <?php 
               if($_SESSION['user']->role == 'admin'){
-               echo '<div class="link-nav"><a href="user_manage.php">Manage Users</a></div>';
+               echo '<div class="link-nav"><a href="./manage_php/user_manage.php">Manage Users</a></div>';
               }
               ?>
         <div class="link-nav"><a onclick="logoutcall()" href="#" id="logoutbtn">Log-out</a></div> <!-- logout button not working -->

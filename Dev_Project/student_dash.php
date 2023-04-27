@@ -49,15 +49,12 @@ if($_SESSION['user']->role != 'student'){
 <body style="border: 0px solid black;">
     <!-- Start of nav bar -->
     <nav>
-        <div id="left-side">
-        <div id="logo-div">
-            <a>
-            <img src="./imgs/logo.png" style="width:40px; height:40px;" />
-            </a>
+        <div id="left-side" style="height:100%">
+        <div id="logo-div" style="height:100%;">
+            <img class="logo" id="ionalogo" src="./imgs/logo.png" style="width:40px; height:40px;" />
             </div>
             </div>
             <div id="right-side">
-            <div class="link-nav"><a style="color:black; text-decoration:none;" href="./student_dash.php">Back To Dashboard</a></div>
             <div class="link-nav"><a onclick="logoutcall()" id="logoutbtn">Log-out</a></div>
         </div>
     </nav>
@@ -66,15 +63,11 @@ if($_SESSION['user']->role != 'student'){
         <div class="row">
     <!-- Left column -->
     <div class="col-md-3">
-        <div class="container-rounded">
-        <table class='table'>
-        <thead>
-        <tr>
-        <th scope='col'>Assignments</th>
-        <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Assignments</h5>
+              </div>
+              <div class="card-body" id="table area">
         <?php 
        
         
@@ -89,7 +82,7 @@ if($_SESSION['user']->role != 'student'){
                 echo " <tr>";
                 echo " <td>Assignment: ".$assignment[1]."<br />";
                 echo " Due: ".$assignment[1]."<br></td>";
-                echo " <td><button onclick='beginAssignment($assignment[0]);' type='button' class='btn btn-view btn-primary'><i class='fas fa-eye'></i> View</button></td>";
+                echo " <td><button onclick='beginAssignment($assignment[0]);' type='button' class='btn btn-view btn-primary'><i class='fas fa-eye'></i> Open</button></td></br></br>";
                 //echo "Assignment Id: ". $assignment[0]."<br>";
                 //echo "Assignment Name: ". $assignment[1]."<br>";
                 //echo "Assignment Due: ". $assignment[2]."<br>";
@@ -99,18 +92,14 @@ if($_SESSION['user']->role != 'student'){
             }
             echo ' </tbody>';
             echo "</table>";
-            echo "</div>";
+            echo "</div></div></br></br>";
             ?>
 
-<div class="container-rounded">
-        <table class='table'>
-        <thead>
-        <tr>
-        <th scope='col'>Classes</th>
-        <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
+            <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Your Classes</h5>
+              </div>
+              <div class="card-body" id="table area">
         <?php
 
             //$sql ="SELECT Class.Class_id,Class.Class_name,Users.First_Name,Users.Last_Name FROM Class Inner JOIN Users on Users.User_ID=Class.Professor_id"; //and Users.Role='professor'"; 
@@ -118,12 +107,12 @@ if($_SESSION['user']->role != 'student'){
 
             $result = $conn->query($sql);
             if($result->num_rows > 0){ 
-            echo "<table class='table table-striped'>";
+            echo "<table class='table table-bordered'>";
             echo"<thead>";
             echo"<tr>";
 
             echo"<th>Class Name</th>";
-            echo"<th>Professor Last Name</th>";
+            echo"<th>Professor</th>";
             echo"</tr>";
             echo"</thead>";
             echo"<tbody>";
@@ -145,14 +134,14 @@ if($_SESSION['user']->role != 'student'){
             </tbody>
             </table>
             <form id="register_class">
-    <b id="response"></b>
-    <b> Add a class</b><br />
-    <label for="class_code">Class code</label>
-    <input type="text" style="width:auto;"name="class_code" id="class_code"/>
+    <b id="response"></b></br><hr/></br>
+    <b> Add a class</b><br /></br>
+    <label for="class_code">Class code: </label></br>
+    <input type="text" style="width:auto;"name="class_code" id="class_code"/></br></br>
     <button type="button" class="btn btn-view btn-primary" onclick="registerClass();">Submit</button>
         </form>
 
-            </div>
+            </div></div>
 
 
         
@@ -162,9 +151,12 @@ if($_SESSION['user']->role != 'student'){
         </div>
         <!-- Right column -->
         <div class="col-md-9">
-            <div class="container-rounded">
-                <h4>Announcements</h4>
-                <hr>
+        <div class="card" style="height:auto;">
+              <div class="card-header">
+                  <h5 class="mb-0">Announcements</h5>
+              </div>
+              <div class="card-body" id="table area">
+                
                 <div class="card">
                     <div class="card-body">
                         <?php 
@@ -175,10 +167,9 @@ if($_SESSION['user']->role != 'student'){
                               $array = $Announcement_Class->getEntries($id);
 
                             foreach($array as $announce){
-                            echo "<h5 class='card-title'>".$announce->Class_id."</h5>";
-                            echo "<h5 class='card-title'>".$announce->Class_Name."</h5>";
-                            echo "<p class='card-text'>".$announce->Text."</p>";
-                            echo "<p class='card-text'><small class='text-muted'>".$array[0]->Date."</small></p>";
+                            echo "<h5 class='card-title'> From class: ".$announce->Class_Name."</h5>";
+                            echo "<p class='card-text'> Announcement: ".$announce->Text."</p>";
+                            echo "<p class='card-text'><small class='text-muted'> Posted on: ".$array[0]->Date."</small></p>";
                             }
                         }
                        ?>
