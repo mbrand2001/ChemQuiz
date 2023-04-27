@@ -127,8 +127,8 @@ if( isset($_POST['click'])){
           echo "<table class='table table-bordered table-responsive' id='table'>";
             echo"<th>";
             echo"<tr>"; 
-            echo"<td>Assignment Id</td>";
-            echo"<td>Class Id</td>";
+            echo"<td>Assignment ID</td>";
+            echo"<td>Class ID</td>";
             echo"<td>Assignment Name</td>";
             echo"<td>Assignment Type</td>"; 
             echo"<td>Due Date</td>"; 
@@ -317,8 +317,8 @@ exit();
           if($result->num_rows > 0){ 
             echo "<table id='table' class='table table-bordered table-responsive'>";
               echo"<tr>"; 
-              echo"<td>Assignment Id</td>";
-              echo"<td>Class Id</td>";
+              echo"<td>Assignment ID</td>";
+              echo"<td>Class ID</td>";
               echo"<td>Assignment Name</td>";
               echo"<td>Assignment Type</td>"; 
               echo"<td>Due Date</td>"; 
@@ -360,9 +360,9 @@ exit();
             </div>
             <div class="card-body">
               <form id="assignment_edit">
-                <label for="id">Assignment Id:</label><br>
+                <label for="id">Assignment ID:</label><br>
                 <input class="form-control" type="text" id="id" name="id"><br>
-                <label for="class_id">Class Id:</label><br>
+                <label for="class_id">Class ID:</label><br>
                 <input class="form-control" type="text" id="class_id" name="class_id"><br>
                 <label for="assignment_name">Assignment Name:</label><br>
                 <input class="form-control" type="text" id="assignment_name" name="assignment_name"><br>
@@ -434,8 +434,8 @@ exit();
     echo "<table class='table-responsive table table-bordered' style='max-width:90vw;' id='table'>";
       
       echo"<tr>"; 
-      echo"<td>Question Id</td>";
-      echo"<td>Class Id</td>"; 
+      echo"<td>Question ID</td>";
+      echo"<td>Class ID</td>"; 
       echo"<td>Type</td>"; 
       echo"<td>Text</td>"; 
       echo"<td>Answers</td>";

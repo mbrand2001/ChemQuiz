@@ -1,3 +1,0 @@
-Standardize tables
-Assignments:  Integrate functional components (???)
-Questions:  Style all of it

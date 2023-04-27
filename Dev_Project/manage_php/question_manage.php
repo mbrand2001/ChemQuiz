@@ -350,7 +350,7 @@ exit();
   <label for="id">Question ID:</label><br/>
   <input type="text" class="form-control" id="id" name="id"><br>
   <input type="hidden" value="1" name="delete"/>
-</br>
+
   <button class="btn btn-primary" type="button" onclick="deleteQuestion();">Submit</button>
 </form></div>
 </div></div></div>
@@ -419,12 +419,10 @@ exit();
   <p id="response1"></p>
   <button  class="btn btn-primary" type="button" onclick="checkFormula(1);"> Check Formula</button>
   <input type="hidden" value="1" name="click"/>
-</br><br/>
   <button type="button"  class="btn btn-primary"  onclick="createQuestion();">Submit</button>
 </form>
       </div></div></div>
       <div class="col-md-6">
-
 <div class="card" style="height:auto;">
               <div class="card-header">
                   <h5 class="mb-0">Edit Questions</h5>
@@ -487,16 +485,11 @@ exit();
   <p id="response2"></p><br>
   <button type="button" class="btn btn-primary" onclick="checkFormula(2);"> Check Formula</button>
   <input type="hidden" value="1" name="edit"/>
-</br><br/>
   <button type="button"  class="btn btn-primary" onclick="editQuestion();">Submit</button>
 </form>
       </div></div>
 </br> 
 </br>
-
-
-
-
-      </div>
+</div>
 </body>
 </html>

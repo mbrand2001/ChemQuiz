@@ -79,10 +79,7 @@ if( isset($_POST['delete'])){
       $stmt->bind_param("i",$id);
       if(!$stmt->execute()) echo $stmt->error;
       echo"1";
-      exit();
-
-
-      
+      exit(); 
     }
     else{ 
       echo"-1";
@@ -96,55 +93,33 @@ if( isset($_POST['delete'])){
 
 }
 
-
-
-
 if((isset($_GET['refresh']) && $_GET['refresh'] == 1)){
 
 $sql ="SELECT * FROM Class"; 
 $result = $conn->query($sql);
 if($result->num_rows > 0){ 
-  
-  echo "<table id='table' class='table table-bordered table-responsive'>";
+  echo "<table id='table' class='table table-bordered'>";
     echo"<th>";
     echo"<tr>"; 
-    echo"<td>Class Id</td>";
+    echo"<td>Class ID</td>";
     echo"<td>Class Name</td>";
-    echo"<td>Professor Id</td>"; 
+    echo"<td>Professor ID</td>"; 
     echo"<td>Code</td>"; 
     echo"</tr>";
     echo"</th>";
   while($row = $result->fetch_assoc()){ 
-    
     echo"<tr>";
     echo"<td>".$row['Class_id']."</td>";
     echo"<td>".$row['Class_name']."</td>";
     echo"<td>".$row['Professor_id']."</td>";
     echo"<td>".$row['Code']."</td>";
     echo"</tr>";
-    
-    
-    
-
   }
-
   echo "</table>";
 }
 exit(0);
 }
-
-
-
-
-
-
-
-
 ?>
-
-
-
-
 
 
 <html> 
@@ -254,10 +229,10 @@ exit(0);
 
             echo "<table class='table table-bordered'>";
               echo "<thead>";
-                echo "<tr>";
-                  echo "<th scope='col'>Class Id</th>";
+                // echo "<tr>";
+                  echo "<th scope='col'>Class ID</th>";
                   echo "<th scope='col'>Class Name</th>";
-                  echo "<th scope='col'>Professor Id</th>";
+                  echo "<th scope='col'>Professor ID</th>";
                   echo "<th scope='col'>Class Code</th>";
                 echo "</tr>";
               echo "</thead>";
